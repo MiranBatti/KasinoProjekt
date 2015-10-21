@@ -20,6 +20,10 @@ public class Card {
 	public CardValue getCardValue() {
 	    return cardValue;
 	}
+	
+	public int getCardValueInt() {
+		return cardValue.getCardValue();
+	}
 	 
 	public void setCardValue(CardValue cardValue) {
 	    this.cardValue = cardValue;

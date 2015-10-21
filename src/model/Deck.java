@@ -7,20 +7,20 @@ public class Deck {
 	private ArrayList<Card> deck;
 
 	public Deck () {
-	    this.deck = new ArrayList<Card>();
+		this.deck = new ArrayList<Card>();
 	    for (CardValue card : CardValue.values()) {
 	    	for (Suit suit : Suit.values()) {
 				deck.add(new Card(card, suit));
 			}
 	    }
-	  }
+	}
 	
 	/**
 	 * Shuffles the deck
 	 */
 	public void shuffleDeck() {
 		Collections.shuffle(deck);
-    }
+	}
 	
 	/**
 	 * Returns deck with Cards

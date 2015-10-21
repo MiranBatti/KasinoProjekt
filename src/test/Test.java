@@ -1,9 +1,16 @@
 package test;
 
+import java.util.ArrayList;
+
+import model.*;
+
 public class Test {
 	public static void main(String[] args) {
-		System.out.println("Test GitHub");
-		System.out.println("Ändrat någongting");
-		System.out.println("ok");
+		Game game = new Game();
+		ArrayList<Card> t = new ArrayList<Card>();
+		t = game.takeFourCards();
+		for (Card card : t) {
+			System.out.println(t);
+		}
 	}
 }

@@ -23,12 +23,11 @@ public class Game {
 		return cardsToDeal;
 	}
 	
-	public void dealCardToPlayer() {
-		player.addCard(deck.getCards().get(0));
-		deck.getCards().remove(0);
+	public void dealCardsToPlayer() {
+		player.newCards(takeFourCards());
 	}
 	
-	public void dealCardToComputer() {
+	public void dealCardsToComputer() {
 		
 	}
 	

@@ -69,5 +69,13 @@ public class Table {
 		}
 		return empty;
 	}
+	
+	public ArrayList<Card> showCards() {
+		return cards;
+	}
+	
+	public int nbrOfCards() {
+		return cards.size();
+	}
 }
 

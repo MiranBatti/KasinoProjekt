@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class Game {
 	private Player player;
@@ -12,6 +11,7 @@ public class Game {
 		deck = new Deck();
 		deck.shuffleDeck();
 		player = new Player(takeFourCards());
+		table = new Table(takeFourCards());
 	}
 	
 	private ArrayList<Card> takeFourCards(){
@@ -23,11 +23,12 @@ public class Game {
 		return cardsToDeal;
 	}
 	
-	public void dealCardsToPlayer() {
-		player.newCards(takeFourCards());
+	public void dealCardToPlayer() {
+		player.addCard(deck.getCards().get(0));
+		deck.getCards().remove(0);
 	}
 	
-	public void dealCardsToComputer() {
+	public void dealCardToComputer() {
 		
 	}
 	

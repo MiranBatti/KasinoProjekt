@@ -1,9 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 
 public class Table {
 	
@@ -17,7 +14,7 @@ public class Table {
 	public ArrayList<Card> addCard(Card card) {
 		cards = sortCards();
 		int cardValue = card.getCardValueInt();
-		ArrayList<Card> returnCards = new ArrayList();
+		ArrayList<Card> returnCards = new ArrayList<Card>();
 		
 		for (int i = 0; i < cards.size(); i++) {
 			if (cards.get(i).getCardValueInt() == cardValue) {

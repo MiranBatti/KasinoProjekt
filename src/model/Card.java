@@ -29,6 +29,10 @@ public class Card {
 	    this.cardValue = cardValue;
 	}
 	
+	public void setCardValueInt(int cardValue) {
+	    this.cardValue.setCardValueInt(cardValue);
+	}
+	
 	@Override
 	public String toString() {
 		return "Suit:" + suit + " Card value:" + cardValue.getCardValue();

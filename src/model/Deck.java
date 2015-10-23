@@ -31,10 +31,16 @@ public class Deck {
 	}
 	
 	/**
-	 * Prints out all cards. For testing purposes
+	 * Prints out all cards. For testing purposes.
+	 * Iterate through all cards and when ACE is found
+	 * we change its value to 1.
 	 */
 	public void printAllCards() {
+		System.out.println("\n");
 		for (Card card : deck) {
+			if(card.getCardValue().equals(CardValue.ACE)){
+				card.setCardValueInt(1);
+			}
 			System.out.println(card);
 		}
 	}

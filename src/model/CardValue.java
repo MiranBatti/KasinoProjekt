@@ -24,4 +24,8 @@ public enum CardValue {
 	public int getCardValue() {
 		return cardValue;
 	}
+	
+	public void setCardValueInt(int cardValue) {
+		this.cardValue = cardValue;
+	}
 }

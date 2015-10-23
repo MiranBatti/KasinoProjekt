@@ -14,8 +14,22 @@ public class Table {
 	}
 	
 	
-	public ArrayList<Card> addCard(int cardValuePlayer) {
+	public ArrayList<Card> addCard(Card card) {
+		cards = sortCards();
+		int cardValue = card.getCardValueInt();
+		ArrayList<Card> returnCards = new ArrayList();
 		
+		for (int i = 0; i < cards.size(); i++) {
+			if (cards.get(i).getCardValueInt() == cardValue) {
+				
+			} else {
+				for (int j = 0; j < cards.size(); j++) {
+					
+				}
+			}
+		}
+		
+		return returnCards;
 	}
 	
 	/**

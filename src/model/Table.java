@@ -1,6 +1,9 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class Table {
 	
@@ -10,25 +13,40 @@ public class Table {
 		this.cards = cards;
 	}
 	
+	
 	public ArrayList<Card> addCard(int cardValuePlayer) {
 		
-		ArrayList<Card> returnCards = new ArrayList<Card>();
+	}
+	
+	/**
+	 * Sort cards in CardValue
+	 * @return
+	 */
+	private ArrayList<Card> sortCards() {
+		ArrayList<Card> sortedCards = new ArrayList<Card>();
 		
-		for (int i = 0; i < 0; i++) {
-			int cardValueDeck = 1;//cards.get(i).getCardValue();
-			
-			if (cardValuePlayer < cardValueDeck) {
-				for(int j = 0; j < 0; i++) {
-					
-				}
-			}
+		for (int i = 0; i < cards.size(); i++) {
 			
 			
-			if (cardValueDeck == 14) {
-			}
+			int card1 = cards.get(i).getCardValueInt();
+			int card2 = cards.get(i + 1).getCardValueInt();
 		}
 		
-		return null;
+		return sortedCards;
+	}
+	
+	/**
+	 * Checks if table is empty to determinate if "tabe"
+	 * @return
+	 */
+	public boolean isTableEmpty() {
+		int size = cards.size();
+		boolean empty = true;
+		
+		if (size > 0) {
+			empty = false;
+		}
+		return empty;
 	}
 }
 

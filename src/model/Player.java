@@ -15,6 +15,9 @@ public class Player {
 	}
 	
 	public void addCard(Card card) {
+		if(card == null){
+			throw new NullPointerException("Can't add null card to hand");
+		}
 		cards.add(card);
 	}
 	
@@ -24,5 +27,9 @@ public class Player {
 		//
 		cards.remove(index);
 		return card;
+	}
+	
+	public ArrayList<Card> showHand() {
+		return cards;
 	}
 }

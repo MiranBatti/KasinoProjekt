@@ -30,4 +30,13 @@ public class Deck {
 		return deck;
 	}
 	
+	/**
+	 * Prints out all cards. For testing purposes
+	 */
+	public void printAllCards() {
+		for (Card card : deck) {
+			System.out.println(card);
+		}
+	}
+	
 }

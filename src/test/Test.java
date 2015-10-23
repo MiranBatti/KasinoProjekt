@@ -10,5 +10,9 @@ public class Test {
 		ArrayList<Card> t = new ArrayList<Card>();
 		t = game.takeFourCards();
 		System.out.println(t);
+		
+		Deck deck = new Deck();
+		deck.printAllCards();
+		
 	}
 }

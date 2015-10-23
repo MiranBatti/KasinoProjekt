@@ -29,4 +29,5 @@ public class Deck {
 	public ArrayList<Card> getCards() {
 		return deck;
 	}
+	
 }

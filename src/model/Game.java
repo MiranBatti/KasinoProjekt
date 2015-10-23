@@ -15,14 +15,18 @@ public class Game {
 	
 	public ArrayList<Card> takeFourCards(){
 		ArrayList<Card> cardsToDeal = new ArrayList<Card>();
-		Iterator<Card> cardIterator = deck.getCards().iterator();
+		ArrayList<Card> deckWithCards = deck.getCards();
 		for (int i = 0; i < 4; i++) {
-			cardsToDeal.add(cardIterator.next());
+			cardsToDeal.add(deckWithCards.get(i));
 		}
 		return cardsToDeal;
 	}
 	
 	public void dealCardsToPlayer() {
+		
+	}
+	
+	public void dealCardsToComputer() {
 		
 	}
 	

@@ -28,4 +28,9 @@ public class Card {
 	public void setCardValue(CardValue cardValue) {
 	    this.cardValue = cardValue;
 	}
+	
+	@Override
+	public String toString() {
+		return "Suit:" + suit + " Card value:" + cardValue.getCardValue();
+	}
 }

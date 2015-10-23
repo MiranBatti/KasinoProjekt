@@ -9,8 +9,6 @@ public class Test {
 		Game game = new Game();
 		ArrayList<Card> t = new ArrayList<Card>();
 		t = game.takeFourCards();
-		for (Card card : t) {
-			System.out.println(t);
-		}
+		System.out.println(t);
 	}
 }

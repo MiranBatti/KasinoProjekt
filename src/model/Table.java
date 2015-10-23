@@ -24,14 +24,24 @@ public class Table {
 	 */
 	private ArrayList<Card> sortCards() {
 		ArrayList<Card> sortedCards = new ArrayList<Card>();
+		int card1;
+		int card2;
 		
 		for (int i = 0; i < cards.size(); i++) {
 			
-			
-			int card1 = cards.get(i).getCardValueInt();
-			int card2 = cards.get(i + 1).getCardValueInt();
+			if (i < (cards.size() -1)) {
+				card1 = cards.get(i).getCardValueInt();
+				card2 = cards.get(i + 1).getCardValueInt();
+				
+				if (card1 > card2) {
+					sortedCards.add(cards.get(i));
+					sortedCards.add(cards.get(i + 1));
+				} else {
+					sortedCards.add(cards.get(i + 1));
+					sortedCards.add(cards.get(i));
+				}
+			}
 		}
-		
 		return sortedCards;
 	}
 	

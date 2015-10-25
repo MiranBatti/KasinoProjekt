@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.menuController">
+   <children>
+      <HBox prefHeight="226.0" prefWidth="600.0">
+         <children>
+            <VBox alignment="BOTTOM_RIGHT" prefHeight="194.0" prefWidth="300.0">
+               <children>
+                  <Label minWidth="80.0" text="Difficulty">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <RadioButton minWidth="80.0" mnemonicParsing="false" selected="true" text="Easy">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="difficultyToggleGrp" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton minWidth="80.0" mnemonicParsing="false" text="Medium" toggleGroup="$difficultyToggleGrp">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <RadioButton minWidth="80.0" mnemonicParsing="false" text="Hard" toggleGroup="$difficultyToggleGrp">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </RadioButton>
+               </children>
+            </VBox>
+            <VBox alignment="BOTTOM_LEFT" prefHeight="239.0" prefWidth="299.0">
+               <children>
+                  <Label text="Players">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <RadioButton mnemonicParsing="false" selected="true" text="Two">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="playersToggleGrp" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="Three" toggleGroup="$playersToggleGrp">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="Four" toggleGroup="$playersToggleGrp">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </RadioButton>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="104.0" prefWidth="600.0">
+         <children>
+            <Button fx:id="startBtn" mnemonicParsing="false" onAction="#startBtnClick" text="Start">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>

@@ -43,7 +43,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </Label>
-                  <RadioButton mnemonicParsing="false" selected="true" text="Two">
+                  <RadioButton fx:id="players2" mnemonicParsing="false" selected="true" text="Two">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
@@ -51,12 +51,12 @@
                         <ToggleGroup fx:id="playersToggleGrp" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton mnemonicParsing="false" text="Three" toggleGroup="$playersToggleGrp">
+                  <RadioButton fx:id="players3" mnemonicParsing="false" text="Three" toggleGroup="$playersToggleGrp">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </RadioButton>
-                  <RadioButton mnemonicParsing="false" text="Four" toggleGroup="$playersToggleGrp">
+                  <RadioButton fx:id="players4" mnemonicParsing="false" text="Four" toggleGroup="$playersToggleGrp">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>

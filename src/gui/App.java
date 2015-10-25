@@ -9,7 +9,23 @@ import javafx.scene.Scene;
 /**
  *  Start point for Application when using GUI
  */
-public class Main extends Application {
+public class App extends Application {
+	
+	private static App instance;
+	private int players;
+
+    public App() {
+        instance = this;
+    }
+
+    /**
+     * Return App instance
+     * purpose of this method is to use the instace to get number of players and difficulty level
+     * @return
+     */
+    public static App getInstance() {
+        return instance;
+    }
 	
 	/**
 	 * Setup JavaFx Application
@@ -35,4 +51,22 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
+	
+	/**
+	 * Get numbers of players
+	 * @return
+	 */
+	public int getPlayers() {
+		return players;
+	}
+
+	/**
+	 * Set numnbers of players
+	 * @param players
+	 */
+	public void setPlayers(int players) {
+		this.players = players;
+	}
+	
+	
 }

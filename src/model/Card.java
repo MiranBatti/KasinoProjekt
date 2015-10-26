@@ -12,11 +12,19 @@ public class Card {
 	public Suit getSuit() {
 		return suit;
 	}
+	
+	public int getSuitInt() {
+		return suit.getSuit();
+	}
 	 
 	public void setSuit(Suit suit) {
 	    this.suit = suit;
 	}
-	 
+	
+	public void setSuitInt(int suit) {
+	    this.suit.setCardSuitInt(suit);
+	}
+	
 	public CardValue getCardValue() {
 	    return cardValue;
 	}

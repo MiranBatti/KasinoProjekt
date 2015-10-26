@@ -16,7 +16,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 
-public class menuController implements Initializable{
+public class menuController implements Initializable {
 	@FXML
 	private ToggleGroup difficultyToggleGrp;
 	@FXML

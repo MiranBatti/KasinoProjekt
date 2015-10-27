@@ -49,7 +49,7 @@ public class menuController implements Initializable {
 			App.getInstance().setPlayers(nbrOfPlayers);
 			
 			Parent gameParent = FXMLLoader.load(getClass().getResource("game.fxml"));
-			Scene gameScene = new Scene(gameParent, 1200, 1200);
+			Scene gameScene = new Scene(gameParent, 1200, 700);
 			Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 			primaryStage.hide();
 			primaryStage.setScene(gameScene);

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Game {
 	private Player player;
 	private Table table;
+	private ComputerSimple computerSimple;
 	private Deck deck;
 	private int nbrOfPlayers;
 	
@@ -14,6 +15,7 @@ public class Game {
 		deck.shuffleDeck();
 		player = new Player(takeFourCards());
 		table = new Table(takeFourCards());
+		computerSimple = new ComputerSimple(takeFourCards()); // kommer behöva ändras när vi vill ha fler/mindre spelare
 	}
 	
 	/**
@@ -45,15 +47,29 @@ public class Game {
 	}
 	
 	public void dealCardsToComputer() {
-		
+	
 	}
 	
 	public void dealCardsToTable() {
 		
 	}
 	
+	/**
+	 * Checks player hand, if player has no cards
+	 * give 4 new cards to player.
+	 */
+	public void checkPlayerHand() {
+		if(player.showHand().isEmpty()) {
+			player.newCards(takeFourCards());
+		}
+	}
+	
 	public ArrayList<Card> showPlayerHand() {
 		return player.showHand();
+	}
+	
+	public ArrayList<Card> showTableCards() {
+		return table.showCards();
 	}
 	
  	public Deck getDeck() {

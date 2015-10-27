@@ -1,5 +1,6 @@
 package test;
 
+import controller.Game;
 import model.*;
 
 public class Test {

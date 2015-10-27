@@ -5,18 +5,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
+import controller.Game;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import model.Card;
-import model.Game;
 
 public class gameController implements Initializable {
 	@FXML
 	private ImageView playerCardSlot1, playerCardSlot2, playerCardSlot3, playerCardSlot4; // Måste lägga till ID i SceneBuilder i code menyn för att använda GUI objekt i koden
 	@FXML
-	private ImageView tableCardSlot1, tableCardSlot2, tableCardSlot3, tableCardSlot4;
+	private ImageView tableCardSlot1, tableCardSlot2, tableCardSlot3, tableCardSlot4, tableCardSlot5;
 	ArrayList<ImageView> playerCardSlots;
 	ArrayList<ImageView> tableCardSlots;
 	
@@ -43,6 +43,7 @@ public class gameController implements Initializable {
 		tableCardSlots.add(tableCardSlot2);
 		tableCardSlots.add(tableCardSlot3);
 		tableCardSlots.add(tableCardSlot4);
+		tableCardSlots.add(tableCardSlot5);
 	}
 	
 	public void setListeners() {
@@ -50,8 +51,11 @@ public class gameController implements Initializable {
 			imageView.setOnMouseClicked(e -> System.out.println(" ok"));
 		}
 		for (ImageView imageView : tableCardSlots) {
-			imageView.setOnMouseClicked(e -> tableCardSlot1.setImage(null));
+//			tableCardSlot1.setOnMouseClicked(e -> tableCardSlot1.setImage(null));
+//			Image image = new Image(gameController.class.getResourceAsStream("../resources/0_11.png"));
+			imageView.setOnMouseClicked(e -> {game.removeCardFromTable(1); this.updateTable(1);});
 		}
+
 	}
 	
 	// Delar ut kort till player, kanske ändrar koden sen
@@ -59,6 +63,7 @@ public class gameController implements Initializable {
 		ArrayList<Card> hand = game.showPlayerHand();
 		
 		for (int i = 0; i < hand.size(); i++) {
+			
 			String cardNameImg = "../resources/" + hand.get(i).getSuitInt() + "_" + hand.get(i).getCardValueInt() + ".png";
 			Image image = new Image(gameController.class.getResourceAsStream(cardNameImg));
 			playerCardSlots.get(i).setImage(image);
@@ -73,6 +78,15 @@ public class gameController implements Initializable {
 			Image image = new Image(gameController.class.getResourceAsStream(cardNameImg));
 			tableCardSlots.get(i).setImage(image);
 		}
+	}
+	
+	public void updateTable(int index) {
+		ArrayList<Card> hand = game.showTableCards();
+		String cardNameImg;
+		Image image = null;	
+		
+		if(hand.get(index).equals(null)) cardNameImg = null;
+		tableCardSlots.get(index).setImage(image);
 	}
 	
 	public void layCardOnTable() {

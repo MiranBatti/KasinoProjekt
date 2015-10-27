@@ -1,6 +1,12 @@
-package model;
+package controller;
 
 import java.util.ArrayList;
+
+import model.Card;
+import model.ComputerSimple;
+import model.Deck;
+import model.Player;
+import model.Table;
 
 public class Game {
 	private Player player;
@@ -74,5 +80,9 @@ public class Game {
 	
  	public Deck getDeck() {
  		return deck;
+ 	}
+ 	
+ 	public void removeCardFromTable(int index) {
+ 		table.removeCardFromTable(index);
  	}
 }

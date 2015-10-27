@@ -15,9 +15,6 @@ public class Player {
 	}
 	
 	public void addCard(Card card) {
-		if(card == null){
-			throw new NullPointerException("Can't add null card to player");
-		}
 		cards.add(card);
 	}
 	

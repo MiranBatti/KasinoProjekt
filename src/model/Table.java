@@ -111,5 +111,13 @@ public class Table {
 	public int nbrOfCards() {
 		return cards.size();
 	}
+	
+	public void removeCardFromTable(int index) {
+		try {
+			cards.remove(index);			
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println("No more cards to remove");
+		}
+	}
 }
 

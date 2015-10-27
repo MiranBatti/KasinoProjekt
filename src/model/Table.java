@@ -91,17 +91,11 @@ public class Table {
 	}
 
 	/**
-	 * Checks if table is empty to determinate if "tabe"
+	 * Returns number of cards on table
 	 * @return
 	 */
-	public boolean isTableEmpty() {
-		int size = cards.size();
-		boolean empty = true;
-
-		if (size > 0) {
-			empty = false;
-		}
-		return empty;
+	public int getNumberOfCards() {
+		return cards.size();
 	}
 
 	public ArrayList<Card> showCards() {

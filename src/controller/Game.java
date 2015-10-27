@@ -78,6 +78,10 @@ public class Game {
 		return table.showCards();
 	}
 	
+	public int getNumberOfCardsOnTable() {
+		return table.getNumberOfCards();
+	}
+	
  	public Deck getDeck() {
  		return deck;
  	}

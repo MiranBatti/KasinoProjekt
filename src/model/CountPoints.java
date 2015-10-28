@@ -28,24 +28,37 @@ public class CountPoints {
 		amountOfCards = new int[players];
 		amountOfSpades = new int[players];
 	}
-
+	
 	/**
 	 * Construktor
 	 * @param players
 	 */
 	public CountPoints(int players) {
 		this.players = players;
-		gameEnd = 15;
+		gameEnd = 15; // Standard points to count to
 		playersScoreList = new int[players];
 		amountOfCards = new int[players];
 		amountOfSpades = new int[players];
 	}
 	
 	/**
+	 * A sequence method to end round with every player hand counted for
+	 * Returns true if game is over
+	 * @param allPlayersCard
+	 * @return 
+	 */
+	public boolean endRoundCountEverything(ArrayList<ArrayList<Card>> allPlayersCard) {
+		for (int i = 0; i < players; i++)
+			valueCards(i, allPlayersCard.get(i));
+		roundEnd();
+		return gameEnded();
+	}
+	
+	/**
 	 * Checks who has most spades and cards which equals one point for both
 	 * Also gives one extra point if a player wins both
 	 */
-	public void roundEnd() {
+	public boolean roundEnd() {
 		ArrayList<Integer> mostCards = givePointToHighest(amountOfCards);
 		ArrayList<Integer> mostSpades = givePointToHighest(amountOfSpades);
 		
@@ -57,6 +70,8 @@ public class CountPoints {
 		// New round 
 		amountOfCards = new int[players];
 		amountOfSpades = new int[players];
+		
+		return gameEnded();
 	}
 	
 	/**
@@ -106,11 +121,14 @@ public class CountPoints {
 	/**
 	 * Method used to add one point to the score for a player
 	 * Use case: "tabe", most spades & most cards
+	 * Returns true if game is over
 	 * @param player
+	 * @return
 	 */
-	public void addOnePoint(int player) {
+	public boolean addOnePoint(int player) {
 		int playerScore = playersScoreList[player];
 		playersScoreList[player] = playerScore + 1;
+		return gameEnded();
 	}
 	
 	/**

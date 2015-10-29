@@ -16,7 +16,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </Label>
-                  <RadioButton minWidth="80.0" mnemonicParsing="false" selected="true" text="Easy">
+                  <RadioButton fx:id="difficultyEasy" minWidth="80.0" mnemonicParsing="false" selected="true" text="Easy">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
@@ -24,12 +24,12 @@
                         <ToggleGroup fx:id="difficultyToggleGrp" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton minWidth="80.0" mnemonicParsing="false" text="Medium" toggleGroup="$difficultyToggleGrp">
+                  <RadioButton fx:id="difficultyMedium" minWidth="80.0" mnemonicParsing="false" text="Medium" toggleGroup="$difficultyToggleGrp">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </RadioButton>
-                  <RadioButton minWidth="80.0" mnemonicParsing="false" text="Hard" toggleGroup="$difficultyToggleGrp">
+                  <RadioButton fx:id="difficultyHard" minWidth="80.0" mnemonicParsing="false" text="Hard" toggleGroup="$difficultyToggleGrp">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>

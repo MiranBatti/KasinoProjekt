@@ -13,7 +13,11 @@ public class App extends Application {
 	
 	private static App instance;
 	private int players;
+	private int difficulty;
 
+	/**
+	 * Construktor
+	 */
     public App() {
         instance = this;
     }
@@ -68,5 +72,20 @@ public class App extends Application {
 		this.players = players;
 	}
 	
+	/**
+	 * Get difficulty level
+	 * @return
+	 */
+	public int getDifficulty() {
+		return difficulty;
+	}
+	
+	/**
+	 * Set difficulty level
+	 * @param difficulty
+	 */
+	public void setDifficulty(int difficulty) {
+		this.difficulty = difficulty;
+	}
 	
 }

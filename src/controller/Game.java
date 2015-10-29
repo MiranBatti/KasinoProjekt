@@ -3,7 +3,8 @@ package controller;
 import java.util.ArrayList;
 
 import model.Card;
-import model.ComputerSimple;
+import model.PlayerComputerEasy;
+import model.PlayerHuman;
 import model.Deck;
 import model.Player;
 import model.Table;
@@ -11,7 +12,7 @@ import model.Table;
 public class Game {
 	private Player player;
 	private Table table;
-	private ComputerSimple computerSimple;
+	private PlayerComputerEasy computerSimple;
 	private Deck deck;
 	private int nbrOfPlayers;
 	
@@ -19,9 +20,9 @@ public class Game {
 		setNbrOfPlayers(nbrOfPlayers);
 		deck = new Deck();
 		deck.shuffleDeck();
-		player = new Player(takeFourCards());
+		player = new PlayerHuman(takeFourCards());
 		table = new Table(takeFourCards());
-		computerSimple = new ComputerSimple(takeFourCards()); // kommer behöva ändras när vi vill ha fler/mindre spelare
+		computerSimple = new PlayerComputerEasy(takeFourCards()); // kommer behöva ändras när vi vill ha fler/mindre spelare
 	}
 	
 	/**

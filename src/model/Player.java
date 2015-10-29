@@ -2,7 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
-public class Player {
+public abstract class Player {
 	
 	ArrayList<Card> cards;
 	ArrayList<Card> pointsCard;
@@ -18,12 +18,6 @@ public class Player {
 	
 	public void addCard(Card card) {
 		cards.add(card);
-	}
-	
-	public Card cardOnTable(int index) {
-		Card card = cards.get(index);
-		cards.remove(index);
-		return card;
 	}
 	
 	public ArrayList<Card> showHand() {

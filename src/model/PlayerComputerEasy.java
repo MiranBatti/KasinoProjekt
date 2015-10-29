@@ -3,20 +3,10 @@ package model;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class ComputerSimple {
-	
-	ArrayList<Card> cards;
-	
-	public ComputerSimple(ArrayList<Card> cards) {
-		this.cards = cards;
-	}
-	
-	public void newCards(ArrayList<Card> cards) {
-		this.cards = cards;
-	}
-	
-	public void addCard(Card card) {
-		cards.add(card);
+public class PlayerComputerEasy extends Player{
+
+	public PlayerComputerEasy(ArrayList<Card> cards) {
+		super(cards);
 	}
 	
 	public Card cardOnTable() {
@@ -28,5 +18,5 @@ public class ComputerSimple {
 		
 		return rndCard;
 	}
-	
+
 }

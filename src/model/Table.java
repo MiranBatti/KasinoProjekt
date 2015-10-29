@@ -14,11 +14,12 @@ public class Table {
 	
 	/**
 	 * Method to give cards back depending on what cards is a combo of target card or if target card value is on table
+	 * Could also send in a test boolean to check what hand gives best card
 	 * @param cards
 	 * @param target
 	 * @param partial
 	 */
-	private void addCardRecursive(ArrayList<Card> cards, int target, ArrayList<Card> partial) {
+	private void addCardRecursive(ArrayList<Card> cards, int target, ArrayList<Card> partial, boolean test) {
 		int sum = 0;
 		int cardsLenght = cards.size();
 
@@ -30,7 +31,8 @@ public class Table {
 		if (sum == target) {
 			HashSet<Card> hs = new HashSet<>(partial);
 			returnCards.addAll(hs);
-			cards.removeAll(hs);
+			if (test == false)
+				cards.removeAll(hs);
 		}
 
 		if (sum >= target)
@@ -47,7 +49,7 @@ public class Table {
 			partial_rec.add(cards.get(i));
 
 			// Rescursive, calling same method but with diffrent values since last time
-			addCardRecursive(remaining, target, partial_rec);             
+			addCardRecursive(remaining, target, partial_rec, test);             
 		}
 	}
 
@@ -56,10 +58,10 @@ public class Table {
 	 * @param card
 	 * @return
 	 */
-	public ArrayList<Card> addCard(Card card) {
+	public ArrayList<Card> addCard(Card card, boolean test) {
 		returnCards = new ArrayList<Card>();
 		int cardValue = card.getCardValueInt();
-		addCardRecursive(cards, cardValue, new ArrayList<Card>());
+		addCardRecursive(cards, cardValue, new ArrayList<Card>(), test);
 		return returnCards;
 	}
 

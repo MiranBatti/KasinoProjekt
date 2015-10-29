@@ -79,6 +79,10 @@ public class Game {
  		return deck;
  	}
  	
+ 	public Table getTable() {
+ 		return table;
+ 	}
+ 	
 	public void dealCardsToComputer() {
 		
 	}

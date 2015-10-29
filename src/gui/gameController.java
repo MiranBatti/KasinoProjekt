@@ -46,14 +46,21 @@ public class gameController implements Initializable {
 		tableCardSlots.add(tableCardSlot5);
 	}
 	
+	// Ha alla listerns här
 	public void setListeners() {
 		for (ImageView imageView : playerCardSlots) {
-			imageView.setOnMouseClicked(e -> System.out.println(" ok"));
+			imageView.setOnMouseClicked(e -> {
+				//Lägg klickat kort
+				//Lägg kort för motspelare
+				//Ta bort kort som har lagt / Hide
+				//Uppdatera table bordet
+				//Nya kort om playern har slut / koll om spelet är slut isåfall metod för att skriva ut vinaren 
+			});
 		}
 		for (ImageView imageView : tableCardSlots) {
 //			tableCardSlot1.setOnMouseClicked(e -> tableCardSlot1.setImage(null));
 //			Image image = new Image(gameController.class.getResourceAsStream("../resources/0_11.png"));
-			imageView.setOnMouseClicked(e -> {game.removeCardFromTable(1); this.updateTable(1);});
+			//imageView.setOnMouseClicked(e -> {game.removeCardFromTable(1); this.updateTable(1);});
 		}
 
 	}

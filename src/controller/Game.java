@@ -52,14 +52,6 @@ public class Game {
 		player.newCards(takeFourCards());
 	}
 	
-	public void dealCardsToComputer() {
-	
-	}
-	
-	public void dealCardsToTable() {
-		
-	}
-	
 	/**
 	 * Checks player hand, if player has no cards
 	 * give 4 new cards to player.
@@ -86,7 +78,11 @@ public class Game {
  		return deck;
  	}
  	
- 	public void removeCardFromTable(int index) {
- 		table.removeCardFromTable(index);
- 	}
+	public void dealCardsToComputer() {
+		
+	}
+	
+	public void dealCardsToTable() {
+		
+	}
 }

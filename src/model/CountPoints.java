@@ -12,9 +12,6 @@ public class CountPoints {
 	private int[] amountOfSpades;
 	private int players;
 	private int gameEnd;
-	
-	// Till sen
-	// Fixa så classen inte krachar om man matar in fel värden 
 
 	/**
 	 * Construktor

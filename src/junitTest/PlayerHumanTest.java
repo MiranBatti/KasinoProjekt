@@ -26,7 +26,7 @@ public class PlayerHumanTest {
 		for (int i = 0; i < nbrOfCardsInHand; i++) {
 			hand.add(deck.getCards().get(i));
 		}
-		player = new PlayerHuman(hand);
+		//player = new PlayerHuman(hand, table); gjort om
 	}
 
 	@After

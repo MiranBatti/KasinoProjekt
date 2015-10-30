@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public abstract class Player {
 	
+	// only Access to sub-classes
 	ArrayList<Card> cards;
 	ArrayList<Card> pointsCard;
 	

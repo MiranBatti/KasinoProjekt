@@ -4,6 +4,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import com.sun.xml.internal.ws.util.StringUtils;
+
 import controller.Game;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,17 +17,14 @@ public class gameController implements Initializable {
 	@FXML
 	private ImageView playerCardSlot1, playerCardSlot2, playerCardSlot3, playerCardSlot4; // Måste lägga till ID i SceneBuilder i code menyn för att använda GUI objekt i koden
 	@FXML
-	private ImageView tableCardSlot1, tableCardSlot2, tableCardSlot3, tableCardSlot4, tableCardSlot5;
 	private ArrayList<ImageView> playerCardSlots;
-	private ArrayList<ImageView> tableCardSlots;
 	
 	private Game game;
-	private Card clickedCard;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		initArrays();
-		game = new Game(App.getInstance().getPlayers());
+		game = new Game(App.getInstance().getPlayers(), App.getInstance().getDifficulty());
 		playersCards();
 		tableCards();
 		setListeners();
@@ -37,35 +36,28 @@ public class gameController implements Initializable {
 		playerCardSlots.add(playerCardSlot2);
 		playerCardSlots.add(playerCardSlot3);
 		playerCardSlots.add(playerCardSlot4);
-		
-		tableCardSlots = new ArrayList<ImageView>();
-		tableCardSlots.add(tableCardSlot1);
-		tableCardSlots.add(tableCardSlot2);
-		tableCardSlots.add(tableCardSlot3);
-		tableCardSlots.add(tableCardSlot4);
-		tableCardSlots.add(tableCardSlot5);
 	}
 	
 	// Ha alla listerns här
 	public void setListeners() {
-		ArrayList<Card> c = game.showPlayerHand();
 		
 		for (ImageView imageView : playerCardSlots) {
 			System.out.println(((ImageView)playerCardSlot1).getImage());
 			imageView.setOnMouseClicked(e -> {
-				e.getSource();
-				this.updateHand(this.playerCardSlots.indexOf(this.playerCardSlot1));
+				String card = imageView.getId();
+				int iend = card.indexOf("_");
+				String cardSuit = card.substring(0, iend);
+				String cardRank = card.substring(iend + 1, card.length());
+				System.out.println(cardSuit + " "  + cardRank);
+				//game.layCards(card);
+				
+				//this.updateHand(this.playerCardSlots.indexOf(this.playerCardSlot1));
 				//Lägg klickat kort
 				//Lägg kort för motspelare
 				//Ta bort kort som har lagt / Hide
 				//Uppdatera table bordet
 				//Nya kort om playern har slut / koll om spelet är slut isåfall metod för att skriva ut vinaren 
 			});
-		}
-		for (ImageView imageView : tableCardSlots) {
-//			tableCardSlot1.setOnMouseClicked(e -> tableCardSlot1.setImage(null));
-//			Image image = new Image(gameController.class.getResourceAsStream("../resources/0_11.png"));
-			//imageView.setOnMouseClicked(e -> {game.removeCardFromTable(1); this.updateTable(1);});
 		}
 
 	}
@@ -78,6 +70,7 @@ public class gameController implements Initializable {
 			String cardNameImg = "../resources/" + hand.get(i).getSuitInt() + "_" + hand.get(i).getCardValueInt() + ".png";
 			Image image = new Image(gameController.class.getResourceAsStream(cardNameImg));
 			playerCardSlots.get(i).setImage(image);
+			playerCardSlots.get(i).setId(hand.get(i).getSuitInt() + "_" + hand.get(i).getCardValueInt());
 		}
 	}
 	
@@ -87,11 +80,10 @@ public class gameController implements Initializable {
 		for (int i = 0; i < hand.size(); i++) {
 			String cardNameImg = "../resources/" + hand.get(i).getSuitInt() + "_" + hand.get(i).getCardValueInt() + ".png";
 			Image image = new Image(gameController.class.getResourceAsStream(cardNameImg));
-			tableCardSlots.get(i).setImage(image);
 		}
 	}
 	
-	public void updateTable(int index) {
+	/*public void updateTable(int index) {
 		ArrayList<Card> hand = game.showTableCards();
 		String cardNameImg;
 		Image image = null;	
@@ -106,13 +98,9 @@ public class gameController implements Initializable {
 		Image image = null;	
 		if(hand.get(index).equals(null)) cardNameImg = null;
 		playerCardSlots.get(index).setImage(image);
-	}
-	
-	public void layCardOnTable() {
-		playerCardSlot1.setOnMouseClicked(e -> System.out.println("b"));
-	}
+	}*/
 
-	public void removeCardFromTable() {
+	/*public void removeCardFromTable() {
 		tableCardSlot1.setOnMouseClicked(e -> {tableCardSlot1.setImage(null);System.out.println("empty");});
-	}
+	}*/
 }

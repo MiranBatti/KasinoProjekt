@@ -4,25 +4,27 @@ import java.util.ArrayList;
 
 import model.Card;
 import model.PlayerComputerEasy;
+import model.PlayerComputerHard;
+import model.PlayerComputerMedium;
 import model.PlayerHuman;
 import model.Deck;
 import model.Player;
 import model.Table;
 
 public class Game {
-	private Player player;
+	private PlayerHuman player;
 	private Table table;
-	private PlayerComputerEasy computerSimple;
+	private ArrayList<Player> computers = new ArrayList<>();
 	private Deck deck;
 	private int nbrOfPlayers;
 	
-	public Game(int nbrOfPlayers) {
-		setNbrOfPlayers(nbrOfPlayers);
+	public Game(int nbrOfPlayers, int difficulty) {
 		deck = new Deck();
 		deck.shuffleDeck();
-		player = new PlayerHuman(takeFourCards());
+		setNbrOfPlayers(nbrOfPlayers);
+		player = new PlayerHuman(takeFourCards(), table);
+		createComputers(difficulty);
 		table = new Table(takeFourCards());
-		computerSimple = new PlayerComputerEasy(takeFourCards()); // kommer behöva ändras när vi vill ha fler/mindre spelare
 	}
 	
 	/**
@@ -40,6 +42,29 @@ public class Game {
 		}
 	}
 	
+	private void createComputers(int difficulty) {
+		for (int i = 1; i < nbrOfPlayers; i++) {
+			switch (difficulty) {
+				case 0:
+					computers.add(new PlayerComputerEasy(takeFourCards(), getTable()));
+					break;
+				case 1:
+					computers.add(new PlayerComputerMedium(takeFourCards(), getTable()));
+					break;
+				case 2:
+					computers.add(new PlayerComputerHard(takeFourCards(), getTable()));
+					break;
+				default:
+					computers.add(new PlayerComputerEasy(takeFourCards(), getTable()));
+					break;
+			}
+		}
+	}
+	
+	/**
+	 * Every player sould take four cards when it begins
+	 * @return
+	 */
 	private ArrayList<Card> takeFourCards(){
 		ArrayList<Card> cardsToDeal = new ArrayList<Card>();
 		for (int i = 0; i < 4; i++) {
@@ -49,43 +74,40 @@ public class Game {
 		return cardsToDeal;
 	}
 	
-	public void dealCardsToPlayer() {
+	public void dealNewCards() {
 		player.newCards(takeFourCards());
 	}
 	
-	/**
-	 * Checks player hand, if player has no cards
-	 * give 4 new cards to player.
-	 */
+	public void layCards(Card card) {
+		player.cardOnTable(card);
+		for (Player c : computers) {
+			
+		}
+	}
+	
+	/*
+
 	public void checkPlayerHand() {
 		if(player.showHand().isEmpty()) {
 			player.newCards(takeFourCards());
 		}
 	}
 	
-	public ArrayList<Card> showPlayerHand() {
-		return player.showHand();
-	}
+	public int getNumberOfCardsOnTable() {
+		return table.getNumberOfCards();
+	}*/
 	
 	public ArrayList<Card> showTableCards() {
 		return table.showCards();
 	}
 	
-	public int getNumberOfCardsOnTable() {
-		return table.getNumberOfCards();
+	public ArrayList<Card> showPlayerHand() {
+		return player.showHand();
 	}
 	
  	public Deck getDeck() {
  		return deck;
  	}
- 	
-	public void dealCardsToComputer() {
-		
-	}
-	
-	public void dealCardsToTable() {
-		
-	}
 	
 	public Table getTable() {
 		return table;

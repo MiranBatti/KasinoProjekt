@@ -20,6 +20,9 @@ public class Table {
 	 * @param partial
 	 */
 	private void addCardRecursive(ArrayList<Card> cards, int target, ArrayList<Card> partial, boolean test) {
+		// Fixa om kort är Ess
+		// Gör ess till ett
+		// Retunera alla ess
 		int sum = 0;
 		int cardsLenght = cards.size();
 

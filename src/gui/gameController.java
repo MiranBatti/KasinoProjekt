@@ -2,7 +2,6 @@ package gui;
 
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.ResourceBundle;
 
 import controller.Game;
@@ -17,10 +16,11 @@ public class gameController implements Initializable {
 	private ImageView playerCardSlot1, playerCardSlot2, playerCardSlot3, playerCardSlot4; // Måste lägga till ID i SceneBuilder i code menyn för att använda GUI objekt i koden
 	@FXML
 	private ImageView tableCardSlot1, tableCardSlot2, tableCardSlot3, tableCardSlot4, tableCardSlot5;
-	ArrayList<ImageView> playerCardSlots;
-	ArrayList<ImageView> tableCardSlots;
+	private ArrayList<ImageView> playerCardSlots;
+	private ArrayList<ImageView> tableCardSlots;
 	
 	private Game game;
+	private Card clickedCard;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -48,8 +48,13 @@ public class gameController implements Initializable {
 	
 	// Ha alla listerns här
 	public void setListeners() {
+		ArrayList<Card> c = game.showPlayerHand();
+		
 		for (ImageView imageView : playerCardSlots) {
+			System.out.println(((ImageView)playerCardSlot1).getImage());
 			imageView.setOnMouseClicked(e -> {
+				e.getSource();
+				this.updateHand(this.playerCardSlots.indexOf(this.playerCardSlot1));
 				//Lägg klickat kort
 				//Lägg kort för motspelare
 				//Ta bort kort som har lagt / Hide
@@ -70,7 +75,6 @@ public class gameController implements Initializable {
 		ArrayList<Card> hand = game.showPlayerHand();
 		
 		for (int i = 0; i < hand.size(); i++) {
-			
 			String cardNameImg = "../resources/" + hand.get(i).getSuitInt() + "_" + hand.get(i).getCardValueInt() + ".png";
 			Image image = new Image(gameController.class.getResourceAsStream(cardNameImg));
 			playerCardSlots.get(i).setImage(image);
@@ -94,6 +98,14 @@ public class gameController implements Initializable {
 		
 		if(hand.get(index).equals(null)) cardNameImg = null;
 		tableCardSlots.get(index).setImage(image);
+	}
+	
+	public void updateHand(int index) {
+		ArrayList<Card> hand = game.showPlayerHand();
+		String cardNameImg;
+		Image image = null;	
+		if(hand.get(index).equals(null)) cardNameImg = null;
+		playerCardSlots.get(index).setImage(image);
 	}
 	
 	public void layCardOnTable() {

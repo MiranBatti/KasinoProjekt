@@ -79,15 +79,19 @@ public class Game {
  		return deck;
  	}
  	
- 	public Table getTable() {
- 		return table;
- 	}
- 	
 	public void dealCardsToComputer() {
 		
 	}
 	
 	public void dealCardsToTable() {
 		
+	}
+	
+	public Table getTable() {
+		return table;
+	}
+	
+	public Player getPlayer() {
+		return player;
 	}
 }

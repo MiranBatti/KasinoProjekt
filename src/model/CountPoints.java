@@ -24,6 +24,7 @@ public class CountPoints {
 		playersScoreList = new int[players];
 		amountOfCards = new int[players];
 		amountOfSpades = new int[players];
+		fillArrays();
 	}
 	
 	/**
@@ -36,6 +37,15 @@ public class CountPoints {
 		playersScoreList = new int[players];
 		amountOfCards = new int[players];
 		amountOfSpades = new int[players];
+		fillArrays();
+	}
+	
+	private void fillArrays() {
+		for (int i = 0; i < players; i++) {
+			playersScoreList[i] = 0;
+			amountOfCards[i] = 0;
+			amountOfSpades[i] = 0;
+		}
 	}
 	
 	/**
@@ -123,8 +133,6 @@ public class CountPoints {
 	 * @return
 	 */
 	public boolean addOnePoint(int player) {
-		System.out.println("Ok");
-		System.out.println(playersScoreList);
 		int playerScore = playersScoreList[player];
 		playersScoreList[player] = playerScore + 1;
 		return gameEnded();

@@ -35,15 +35,15 @@ public class Table {
 			returnCards.addAll(hs);
 
 			if (test == false) {
+				ArrayList<Card> deleteCards = new ArrayList<>();
 				for (int i = 0; i < cards.size(); i++) {
 					for (Card targetCard : hs) {
 						if (cards.get(i).getCardValueInt() == targetCard.getCardValueInt()) {
-							cards.remove(i);
-							if (i > 1)
-								i--;
+							deleteCards.add(cards.get(i));
 						}
 					}
 				}
+				cards.removeAll(deleteCards);
 			}
 		}
 

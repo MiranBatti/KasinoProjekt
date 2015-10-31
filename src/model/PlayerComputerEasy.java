@@ -15,8 +15,7 @@ public class PlayerComputerEasy extends Player implements CardOnTableComputer {
 		Random rnd = new Random();
 		int rndInt = 0;
 		
-		if (cards.get(0) != null) {
-			rndInt = 0;
+		if (cards.size() > 0) {
 			rnd.nextInt(cards.size());
 			Card rndCard = cards.get(rndInt);
 			pointsCard.addAll(table.addCard(rndCard, false));

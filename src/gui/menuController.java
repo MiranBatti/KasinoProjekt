@@ -37,12 +37,14 @@ public class menuController implements Initializable {
 	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		players2.setOnAction(e -> nbrOfPlayers = 2);
-		players3.setOnAction(e -> nbrOfPlayers = 3);
-		players4.setOnAction(e -> nbrOfPlayers = 4);
-		difficultyEasy.setOnAction(e -> difficulty = 0);
-		difficultyMedium.setOnAction(e -> difficulty = 1);
-		difficultyHard.setOnAction(e -> difficulty = 2);
+		nbrOfPlayers = 2;
+		difficulty = 0;
+		players2.setOnAction(e -> { nbrOfPlayers = 2; });
+		players3.setOnAction(e -> { nbrOfPlayers = 3; });
+		players4.setOnAction(e -> { nbrOfPlayers = 4; });
+		difficultyEasy.setOnAction(e -> { difficulty = 0; });
+		difficultyMedium.setOnAction(e -> { difficulty = 1; });
+		difficultyHard.setOnAction(e -> { difficulty = 2; });
 	}
 	
 	/**

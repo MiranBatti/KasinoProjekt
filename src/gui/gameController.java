@@ -51,7 +51,7 @@ public class gameController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		players = App.getInstance().getPlayers();
 		initArrays();
-		game = new Game(App.getInstance().getPlayers(), App.getInstance().getDifficulty());
+		game = new Game(players, App.getInstance().getDifficulty());
 		playersCards();
 		tableCards();
 		setListeners();

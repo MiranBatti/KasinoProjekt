@@ -23,10 +23,10 @@ public class Game {
 	private CountPoints cp;
 	
 	public Game(int nbrOfPlayers, int difficulty) {
+		setNbrOfPlayers(nbrOfPlayers);
 		deck = new Deck();
 		cp = new CountPoints(nbrOfPlayers);
 		table = new Table(takeFourCards());
-		setNbrOfPlayers(nbrOfPlayers);
 		player = new PlayerHuman(takeFourCards(), table);
 		createComputers(difficulty);
 	}
@@ -92,8 +92,8 @@ public class Game {
 		if (deck.amountOfCards() >= 4) {
 			for (int i = 0; i < 4; i++) {
 				cardsToDeal.add(deck.getCards().get(i));
-				deck.getCards().remove(i);
 			}
+			deck.getCards().removeAll(cardsToDeal);
 		}
 		return cardsToDeal;
 	}
@@ -141,25 +141,13 @@ public class Game {
 	
 	public boolean newRound() {
 		cp.valueCards(0, player.getPointsCard());
-		for (int i = 1; i < nbrOfPlayers; i++) {
+		for (int i = 1; i < computersPlayer.size(); i++) {
 			cp.valueCards(i, computersPlayer.get(i).getPointsCard());
 		}
 		cp.roundEnd();
 		
 		return cp.gameEnded();
 	}
-	
-	/*
-
-	public void checkPlayerHand() {
-		if(player.showHand().isEmpty()) {
-			player.newCards(takeFourCards());
-		}
-	}
-	
-	public int getNumberOfCardsOnTable() {
-		return table.getNumberOfCards();
-	}*/
 	
 	public int getDeckAmountCards() {
 		return deck.amountOfCards();

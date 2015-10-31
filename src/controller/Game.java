@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import model.Card;
 import model.CardOnTableComputer;
+import model.CountPoints;
 import model.PlayerComputerEasy;
 import model.PlayerComputerHard;
 import model.PlayerComputerMedium;
@@ -15,15 +16,17 @@ import model.Table;
 public class Game {
 	private PlayerHuman player;
 	private Table table;
-	private ArrayList<CardOnTableComputer> computers = new ArrayList<>();
+	private ArrayList<CardOnTableComputer> computersTable = new ArrayList<>();
+	private ArrayList<Player> computersPlayer = new ArrayList<>();
 	private Deck deck;
 	private int nbrOfPlayers;
+	private CountPoints cp;
 	
 	public Game(int nbrOfPlayers, int difficulty) {
-		deck = new Deck();
-		deck.shuffleDeck();
-		table = new Table(takeFourCards());
 		setNbrOfPlayers(nbrOfPlayers);
+		deck = new Deck();
+		cp = new CountPoints(nbrOfPlayers);
+		table = new Table(takeFourCards());
 		player = new PlayerHuman(takeFourCards(), table);
 		createComputers(difficulty);
 	}
@@ -43,20 +46,32 @@ public class Game {
 		}
 	}
 	
+	/**
+	 * Create Computers to play with
+	 * @param difficulty
+	 */
 	private void createComputers(int difficulty) {
 		for (int i = 1; i < nbrOfPlayers; i++) {
 			switch (difficulty) {
 				case 0:
-					computers.add(new PlayerComputerEasy(takeFourCards(), getTable()));
+					PlayerComputerEasy pce = new PlayerComputerEasy(takeFourCards(), getTable());
+					computersTable.add(pce);
+					computersPlayer.add(pce);
 					break;
 				case 1:
-					computers.add(new PlayerComputerMedium(takeFourCards(), getTable()));
+					PlayerComputerMedium pcm = new PlayerComputerMedium(takeFourCards(), getTable());
+					computersTable.add(pcm);
+					computersPlayer.add(pcm);
 					break;
 				case 2:
-					computers.add(new PlayerComputerHard(takeFourCards(), getTable()));
+					PlayerComputerHard pch = new PlayerComputerHard(takeFourCards(), getTable());
+					computersTable.add(pch);
+					computersPlayer.add(pch);
 					break;
 				default:
-					computers.add(new PlayerComputerEasy(takeFourCards(), getTable()));
+					PlayerComputerEasy pced = new PlayerComputerEasy(takeFourCards(), getTable());
+					computersTable.add(pced);
+					computersPlayer.add(pced);
 					break;
 			}
 		}
@@ -68,35 +83,76 @@ public class Game {
 	 */
 	private ArrayList<Card> takeFourCards(){
 		ArrayList<Card> cardsToDeal = new ArrayList<Card>();
-		for (int i = 0; i < 4; i++) {
-			cardsToDeal.add(deck.getCards().get(i));
-			deck.getCards().remove(i);
+		System.out.println(deck.amountOfCards());
+		
+		System.out.println(deck.amountOfCards());
+		System.out.println(deck.amountOfCards());
+		System.out.println(deck.amountOfCards());
+		System.out.println(deck.amountOfCards());
+		if (deck.amountOfCards() >= 4) {
+			for (int i = 0; i < 4; i++) {
+				cardsToDeal.add(deck.getCards().get(i));
+			}
+			deck.getCards().removeAll(cardsToDeal);
 		}
 		return cardsToDeal;
 	}
 	
-	public void dealNewCards() {
-		player.newCards(takeFourCards());
+	public boolean dealNewCards() {
+		boolean enought = CheckEnoughtCardsDeck(getDeckAmountCards());
+		
+		if (enought == true) {
+			player.newCards(takeFourCards());
+			for (Player computer : computersPlayer) {
+				computer.newCards(takeFourCards());
+			}
+		}
+		
+		return enought;
 	}
 	
 	public void layCards(Card card) {
 		player.cardOnTable(card);
-		for (CardOnTableComputer comp : computers) {
-			comp.cardOnTable();
+		if (table.getNumberOfCards() == 0) {
+			cp.addOnePoint(0);
+		}
+		
+		for (int i = 0; i < computersTable.size(); i++) {
+			computersTable.get(i).cardOnTable();
+			if (table.getNumberOfCards() == 0) {
+				// Player has index 0
+				cp.addOnePoint(i + 1);
+			}
 		}
 	}
 	
-	/*
-
-	public void checkPlayerHand() {
-		if(player.showHand().isEmpty()) {
-			player.newCards(takeFourCards());
-		}
+	private boolean CheckEnoughtCardsDeck(int cards) {
+		boolean enought = true;
+		
+		if (nbrOfPlayers == 2 && cards < 8)
+			enought = false;
+		else if (nbrOfPlayers == 3 && cards < 12)
+			enought = false;
+		else if (nbrOfPlayers == 4 && cards < 16)
+			enought = false;
+			
+		return enought;
 	}
 	
-	public int getNumberOfCardsOnTable() {
-		return table.getNumberOfCards();
-	}*/
+	public boolean newRound() {
+		table.removeCardsFromTable();
+		cp.valueCards(0, player.getPointsCard());
+		for (int i = 1; i < computersPlayer.size(); i++) {
+			cp.valueCards(i, computersPlayer.get(i).getPointsCard());
+		}
+		cp.roundEnd();
+		
+		return cp.gameEnded();
+	}
+	
+	public int getDeckAmountCards() {
+		return deck.amountOfCards();
+	}
 	
 	public ArrayList<Card> showTableCards() {
 		return table.showCards();
@@ -116,5 +172,9 @@ public class Game {
 	
 	public Player getPlayer() {
 		return player;
+	}
+	
+	public CountPoints getCountPoints() {
+		return cp;
 	}
 }

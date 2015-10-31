@@ -24,6 +24,7 @@ public class CountPoints {
 		playersScoreList = new int[players];
 		amountOfCards = new int[players];
 		amountOfSpades = new int[players];
+		fillArrays();
 	}
 	
 	/**
@@ -36,6 +37,15 @@ public class CountPoints {
 		playersScoreList = new int[players];
 		amountOfCards = new int[players];
 		amountOfSpades = new int[players];
+		fillArrays();
+	}
+	
+	private void fillArrays() {
+		for (int i = 0; i < players; i++) {
+			playersScoreList[i] = 0;
+			amountOfCards[i] = 0;
+			amountOfSpades[i] = 0;
+		}
 	}
 	
 	/**
@@ -172,6 +182,10 @@ public class CountPoints {
 			value = 1;
 		
 		return value;
+	}
+	
+	public int playerPoints(int player) {
+		return playersScoreList[player];
 	}
 	
 }

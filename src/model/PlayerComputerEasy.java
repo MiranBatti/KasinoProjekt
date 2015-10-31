@@ -15,13 +15,11 @@ public class PlayerComputerEasy extends Player implements CardOnTableComputer {
 		Random rnd = new Random();
 		int rndInt = 0;
 		
-		if (cards.get(0) != null) {
-			//rndInt = 0;
-					//rnd.nextInt(cards.size() - 1);
-			//Card rndCard = cards.get(rndInt);
-			//cards.remove(rndInt);
-			//cards.addAll(table.addCard(rndCard, false));
-			//System.out.println(rndInt);
+		if (cards.size() > 0) {
+			rnd.nextInt(cards.size());
+			Card rndCard = cards.get(rndInt);
+			pointsCard.addAll(table.addCard(rndCard, false));
+			cards.remove(rndInt);
 		}
 	}
 

@@ -35,14 +35,15 @@ public class Table {
 			returnCards.addAll(hs);
 
 			if (test == false) {
+				ArrayList<Card> deleteCards = new ArrayList<>();
 				for (int i = 0; i < cards.size(); i++) {
 					for (Card targetCard : hs) {
 						if (cards.get(i).getCardValueInt() == targetCard.getCardValueInt()) {
-							cards.remove(i);
-							i--;
+							deleteCards.add(cards.get(i));
 						}
 					}
 				}
+				cards.removeAll(deleteCards);
 			}
 		}
 
@@ -83,33 +84,6 @@ public class Table {
 	}
 
 	/**
-	 * Sort cards in CardValue
-	 * @return
-	 */
-	private ArrayList<Card> sortCards() {
-		ArrayList<Card> sortedCards = new ArrayList<Card>();
-		int card1;
-		int card2;
-
-		for (int i = 0; i < cards.size(); i++) {
-
-			if (i < (cards.size() -1)) {
-				card1 = cards.get(i).getCardValueInt();
-				card2 = cards.get(i + 1).getCardValueInt();
-
-				if (card1 > card2) {
-					sortedCards.add(cards.get(i));
-					sortedCards.add(cards.get(i + 1));
-				} else {
-					sortedCards.add(cards.get(i + 1));
-					sortedCards.add(cards.get(i));
-				}
-			}
-		}
-		return sortedCards;
-	}
-
-	/**
 	 * Returns number of cards on table
 	 * @return
 	 */
@@ -131,6 +105,10 @@ public class Table {
 		} catch (IndexOutOfBoundsException e) {
 			System.out.println("No more cards to remove");
 		}
+	}
+	
+	public void removeCardsFromTable() {
+		cards.clear();
 	}
 }
 

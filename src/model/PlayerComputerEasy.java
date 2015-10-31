@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class PlayerComputerEasy extends Player{
+public class PlayerComputerEasy extends Player implements CardOnTableComputer {
 	private Table table;
 
 	public PlayerComputerEasy(ArrayList<Card> cards, Table table) {
@@ -11,14 +11,18 @@ public class PlayerComputerEasy extends Player{
 		this.table = table;
 	}
 	
-	public Card cardOnTable() {
+	public void cardOnTable() {
 		Random rnd = new Random();
-		int rndInt = rnd.nextInt(cards.size() - 1);
-		Card rndCard = cards.get(rndInt);
-		cards.remove(rndInt);
-		cards.addAll(table.addCard(rndCard, false));
+		int rndInt = 0;
 		
-		return rndCard;
+		if (cards.get(0) != null) {
+			//rndInt = 0;
+					//rnd.nextInt(cards.size() - 1);
+			//Card rndCard = cards.get(rndInt);
+			//cards.remove(rndInt);
+			//cards.addAll(table.addCard(rndCard, false));
+			//System.out.println(rndInt);
+		}
 	}
 
 }

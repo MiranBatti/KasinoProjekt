@@ -8,11 +8,6 @@ public class Card {
 	    this.cardValue = cardValue;
 	    this.suit = suit;
 	}
-	
-	public Card(int cardValueInt, int suitInt) {
-		this.cardValue = CardValue.fromInteger(cardValueInt);
-		this.suit = Suit.values()[suitInt];
-	}
 	 
 	public Suit getSuit() {
 		return suit;

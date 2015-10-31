@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class PlayerComputerHard extends Player {
+public class PlayerComputerHard extends Player implements CardOnTableComputer {
 	private Table table;
 
 	public PlayerComputerHard(ArrayList<Card> cards, Table table) {
@@ -11,7 +11,7 @@ public class PlayerComputerHard extends Player {
 		this.table = table;
 	}
 	
-	public Card cardOnTable() {
+	public void cardOnTable() {
 		int index = 0;
 
 		for (int i = 0; i < cards.size(); i++) {
@@ -25,8 +25,6 @@ public class PlayerComputerHard extends Player {
 			}
 		}
 		cards.remove(index);
-		
-		return cards.get(index);
 	}
 
 }

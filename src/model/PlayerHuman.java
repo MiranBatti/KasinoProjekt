@@ -10,14 +10,13 @@ public class PlayerHuman extends Player {
 		this.table = table;
 	}
 	
-	public Card cardOnTable(Card card) {
+	public void cardOnTable(Card card) {
 		for (int i = 0; i < cards.size(); i++) {
-			if (cards.get(i).equals(card)) {
+			if (cards.get(i).toString().equals(card.toString())) {
+				pointsCard.addAll(table.addCard(cards.get(i), false));
 				cards.remove(i);
-				cards.addAll(table.addCard(cards.get(i), false));
 			}
 		}
-		return card;
 	}
 
 }

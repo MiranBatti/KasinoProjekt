@@ -2,7 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
-public class PlayerComputerMedium extends Player {
+public class PlayerComputerMedium extends Player implements CardOnTableComputer {
 	private Table table;
 
 	public PlayerComputerMedium(ArrayList<Card> cards, Table table) {
@@ -10,7 +10,7 @@ public class PlayerComputerMedium extends Player {
 		this.table = table;
 	}
 	
-	public Card cardOnTable() {
+	public void cardOnTable() {
 		int hegiestRanked = 0;
 		int hegiestIndex = 0;
 		
@@ -25,8 +25,6 @@ public class PlayerComputerMedium extends Player {
 			}
 		}
 		cards.remove(hegiestIndex);
-		
-		return cards.get(hegiestIndex);
 	}
 
 }

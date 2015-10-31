@@ -3,6 +3,7 @@ package controller;
 import java.util.ArrayList;
 
 import model.Card;
+import model.CardOnTableComputer;
 import model.PlayerComputerEasy;
 import model.PlayerComputerHard;
 import model.PlayerComputerMedium;
@@ -14,17 +15,17 @@ import model.Table;
 public class Game {
 	private PlayerHuman player;
 	private Table table;
-	private ArrayList<Player> computers = new ArrayList<>();
+	private ArrayList<CardOnTableComputer> computers = new ArrayList<>();
 	private Deck deck;
 	private int nbrOfPlayers;
 	
 	public Game(int nbrOfPlayers, int difficulty) {
 		deck = new Deck();
 		deck.shuffleDeck();
+		table = new Table(takeFourCards());
 		setNbrOfPlayers(nbrOfPlayers);
 		player = new PlayerHuman(takeFourCards(), table);
 		createComputers(difficulty);
-		table = new Table(takeFourCards());
 	}
 	
 	/**
@@ -80,8 +81,8 @@ public class Game {
 	
 	public void layCards(Card card) {
 		player.cardOnTable(card);
-		for (Player c : computers) {
-			
+		for (CardOnTableComputer comp : computers) {
+			comp.cardOnTable();
 		}
 	}
 	

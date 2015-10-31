@@ -39,7 +39,8 @@ public class Table {
 					for (Card targetCard : hs) {
 						if (cards.get(i).getCardValueInt() == targetCard.getCardValueInt()) {
 							cards.remove(i);
-							i--;
+							if (i > 1)
+								i--;
 						}
 					}
 				}
@@ -80,33 +81,6 @@ public class Table {
 		
 		// retunera även kortet man får om det passar
 		return returnCards;
-	}
-
-	/**
-	 * Sort cards in CardValue
-	 * @return
-	 */
-	private ArrayList<Card> sortCards() {
-		ArrayList<Card> sortedCards = new ArrayList<Card>();
-		int card1;
-		int card2;
-
-		for (int i = 0; i < cards.size(); i++) {
-
-			if (i < (cards.size() -1)) {
-				card1 = cards.get(i).getCardValueInt();
-				card2 = cards.get(i + 1).getCardValueInt();
-
-				if (card1 > card2) {
-					sortedCards.add(cards.get(i));
-					sortedCards.add(cards.get(i + 1));
-				} else {
-					sortedCards.add(cards.get(i + 1));
-					sortedCards.add(cards.get(i));
-				}
-			}
-		}
-		return sortedCards;
 	}
 
 	/**

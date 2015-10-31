@@ -43,6 +43,10 @@ public class Game {
 		}
 	}
 	
+	/**
+	 * Create Computers to play with
+	 * @param difficulty
+	 */
 	private void createComputers(int difficulty) {
 		for (int i = 1; i < nbrOfPlayers; i++) {
 			switch (difficulty) {

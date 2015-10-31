@@ -9,6 +9,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.shape.Box;
 import model.Card;
 import model.CardValue;
 import model.Suit;
@@ -17,23 +19,42 @@ public class gameController implements Initializable {
 	@FXML
 	private ImageView playerCardSlot1, playerCardSlot2, playerCardSlot3, playerCardSlot4;
 	@FXML
-	private ArrayList<ImageView> playerCardSlots;
+	private ImageView computer1CardSlot1;
 	@FXML
-	private ImageView tableCardSlot1, tableCardSlot2, tableCardSlot3, tableCardSlot4;
+	private ImageView computer1CardSlot2;
 	@FXML
-	private ArrayList<ImageView> tableCardSlots;
+	private ImageView computer1CardSlot3;
+	@FXML
+	private ImageView computer1CardSlot4;
+	@FXML
+	private ImageView computer2Slot1, computer2Slot2, computer2Slot3, computer2Slot4;
+	@FXML
+	private ImageView computer3Slot1, computer3Slot2, computer3Slot3, computer3Slot4;
 	@FXML
 	private HBox hboxCenter;
+	@FXML
+	private HBox hboxTop;
+	@FXML
+	private VBox vboxRight;
+	@FXML
+	private VBox vboxLeft;
 	
+	private ArrayList<ImageView> playerCardSlots;
+	private ArrayList<ImageView> computer1CardSlots;
+	private ArrayList<ImageView> computer2CardSlots;
+	private ArrayList<ImageView> computer3CardSlots;
+	int players;
 	private Game game;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		players = App.getInstance().getPlayers();
 		initArrays();
 		game = new Game(App.getInstance().getPlayers(), App.getInstance().getDifficulty());
 		playersCards();
 		tableCards();
 		setListeners();
+		setComputersCard();
 	}
 	
 	public void initArrays() {
@@ -43,18 +64,16 @@ public class gameController implements Initializable {
 		playerCardSlots.add(playerCardSlot3);
 		playerCardSlots.add(playerCardSlot4);
 		
-		tableCardSlots = new ArrayList<ImageView>();
-		tableCardSlots.add(tableCardSlot1);
-		tableCardSlots.add(tableCardSlot2);
-		tableCardSlots.add(tableCardSlot3);
-		tableCardSlots.add(tableCardSlot4);
+		computer1CardSlots = new ArrayList<ImageView>();
+		computer1CardSlots.add(computer1CardSlot1);
+		computer1CardSlots.add(computer1CardSlot2);
+		computer1CardSlots.add(computer1CardSlot3);
+		computer1CardSlots.add(computer1CardSlot4);
 	}
 	
 	// Ha alla listerns här
-	public void setListeners() {
-		
+	public void setListeners() {	
 		for (ImageView imageView : playerCardSlots) {
-			System.out.println(((ImageView)playerCardSlot1).getImage());
 			imageView.setOnMouseClicked(e -> {
 				String card = imageView.getId();
 				if (card != "ignore") {
@@ -65,13 +84,11 @@ public class gameController implements Initializable {
 					game.layCards(new Card(CardValue.values()[cardValue - 2], Suit.values()[cardSuit]));
 					playersCards();
 					tableCards();
-					//Ta bort kort som har lagt / Hide
-					//Uppdatera table bordet
+					changeComputerCards(game.showPlayerHand().size());
 					//Nya kort om playern har slut / koll om spelet är slut isåfall metod för att skriva ut vinaren 
 				}
 			});
 		}
-
 	}
 	
 	// Delar ut kort till player, kanske ändrar koden sen
@@ -95,43 +112,46 @@ public class gameController implements Initializable {
 		ArrayList<Card> table = game.showTableCards();
 		hboxCenter.getChildren().clear();
 		
-		/*for(ImageView view : tableCardSlots) {
-			view.setImage(new Image(gameController.class.getResourceAsStream("../resources/transparent.png")));
-		}*/
-		
 		for (int i = 0; i < table.size(); i++) {
 			String cardNameImg = "../resources/" + table.get(i).getSuitInt() + "_" + table.get(i).getCardValueInt() + ".png";
 			Image image = new Image(gameController.class.getResourceAsStream(cardNameImg));
 			
 			ImageView view = new ImageView();
-			
-			 view.fitWidthProperty().bind(image.widthProperty());
-			
+			view.fitWidthProperty().bind(image.widthProperty());
 			view.setImage(image);
 			
 			hboxCenter.getChildren().add(view);
-			
 		}
 	}
 	
-	/*public void updateTable() {
-		ArrayList<Card> hand = game.showTableCards();
-		String cardNameImg;
-		Image image = null;	
-		
-		if(hand.get(index).equals(null)) cardNameImg = null;
-		tableCardSlots.get(index).setImage(image);
+	public void setComputersCard() {
+		if (players == 2) {
+			vboxRight.getChildren().clear();
+			vboxLeft.getChildren().clear();
+		}		
+		else if (players == 3) {
+			vboxLeft.getChildren().clear();
+		}	
 	}
 	
-	public void updateHand(int index) {
-		ArrayList<Card> hand = game.showPlayerHand();
-		String cardNameImg;
-		Image image = null;	
-		if(hand.get(index).equals(null)) cardNameImg = null;
-		playerCardSlots.get(index).setImage(image);
-	}*/
-
-	/*public void removeCardFromTable() {
-		tableCardSlot1.setOnMouseClicked(e -> {tableCardSlot1.setImage(null);System.out.println("empty");});
-	}*/
+	public void newCardsComputer() {
+		for (int i = 0; i < 4; i++) {
+			computer1CardSlots.get(i).setImage(new Image(gameController.class.getResourceAsStream("../resources/0.png")));
+			if (players == 3)
+				computer2CardSlots.get(i).setImage(new Image(gameController.class.getResourceAsStream("../resources/0.png")));
+			else if (players == 4)
+				computer3CardSlots.get(i).setImage(new Image(gameController.class.getResourceAsStream("../resources/0.png")));
+		}
+	}
+	
+	public void changeComputerCards(int cards) {
+		int hideCards = 4 - cards;
+		for (int i = 0; i < hideCards; i++) {
+			computer1CardSlots.get(i).setImage(new Image(gameController.class.getResourceAsStream("../resources/transparent.png")));
+			if (players == 3)
+				computer2CardSlots.get(i).setImage(new Image(gameController.class.getResourceAsStream("../resources/transparent.png")));
+			else if (players == 4)
+				computer3CardSlots.get(i).setImage(new Image(gameController.class.getResourceAsStream("../resources/transparent.png")));
+		}
+	}
 }

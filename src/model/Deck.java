@@ -8,11 +8,18 @@ public class Deck {
 
 	public Deck () {
 		this.deck = new ArrayList<Card>();
-	    for (CardValue card : CardValue.values()) {
+		newRound();
+	}
+	
+	public void newRound() {
+		deck.clear();
+		
+		for (CardValue card : CardValue.values()) {
 	    	for (Suit suit : Suit.values()) {
 				deck.add(new Card(card, suit));
 			}
 	    }
+		shuffleDeck();
 	}
 	
 	/**
@@ -43,6 +50,14 @@ public class Deck {
 			}
 			System.out.println(card);
 		}
+	}
+	
+	/**
+	 * Return amount of cards left in deck
+	 * @return
+	 */
+	public int amountOfCards() {
+		return deck.size();
 	}
 	
 }

@@ -43,8 +43,9 @@ public class gameController implements Initializable {
 	private ArrayList<ImageView> computer1CardSlots;
 	private ArrayList<ImageView> computer2CardSlots;
 	private ArrayList<ImageView> computer3CardSlots;
-	int players;
+	private int players;
 	private Game game;
+	private ArrayList<Card> playerHand;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -82,29 +83,50 @@ public class gameController implements Initializable {
 					int cardValue = Integer.parseInt(card.substring(iend + 1, card.length()));
 					System.out.println(cardSuit + " " + cardValue);
 					game.layCards(new Card(CardValue.values()[cardValue - 2], Suit.values()[cardSuit]));
-					playersCards();
 					tableCards();
 					changeComputerCards(game.showPlayerHand().size());
-					//Nya kort om playern har slut / koll om spelet är slut isåfall metod för att skriva ut vinaren 
+					playerHand = game.showPlayerHand();
+					System.out.println(playerHand);
+					
+					if (playerHand.isEmpty()) {
+						boolean newCards = game.dealNewCards();
+						if(newCards == true) {
+							newCardsComputer();
+						} else {  
+							boolean round = game.newRound();
+							if (round == false) {
+								gameEnded();
+							}
+						}
+					}
+					playersCards();
 				}
 			});
 		}
 	}
 	
+	/*public void newRound() {
+		
+	}*/
+	
+	public void gameEnded() {
+		System.out.println("SLUT");
+	}
+	
 	// Delar ut kort till player, kanske ändrar koden sen
 	public void playersCards() {
-		ArrayList<Card> hand = game.showPlayerHand();
+		ArrayList<Card> playerHand = game.showPlayerHand();
 		
 		for(ImageView view : playerCardSlots) {
 			view.setImage(new Image(gameController.class.getResourceAsStream("../resources/transparent.png")));
 			view.setId("ignore");
 		}
 			
-		for (int i = 0; i < hand.size(); i++) {
-			String cardNameImg = "../resources/" + hand.get(i).getSuitInt() + "_" + hand.get(i).getCardValueInt() + ".png";
+		for (int i = 0; i < playerHand.size(); i++) {
+			String cardNameImg = "../resources/" + playerHand.get(i).getSuitInt() + "_" + playerHand.get(i).getCardValueInt() + ".png";
 			Image image = new Image(gameController.class.getResourceAsStream(cardNameImg));
 			playerCardSlots.get(i).setImage(image);
-			playerCardSlots.get(i).setId(hand.get(i).getSuitInt() + "_" + hand.get(i).getCardValueInt());
+			playerCardSlots.get(i).setId(playerHand.get(i).getSuitInt() + "_" + playerHand.get(i).getCardValueInt());
 		}
 	}
 	

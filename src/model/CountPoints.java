@@ -123,6 +123,8 @@ public class CountPoints {
 	 * @return
 	 */
 	public boolean addOnePoint(int player) {
+		System.out.println("Ok");
+		System.out.println(playersScoreList);
 		int playerScore = playersScoreList[player];
 		playersScoreList[player] = playerScore + 1;
 		return gameEnded();

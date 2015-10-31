@@ -4,8 +4,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import com.sun.xml.internal.ws.util.StringUtils;
-
 import controller.Game;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -20,7 +18,7 @@ public class gameController implements Initializable {
 	private ArrayList<ImageView> playerCardSlots;
 	
 	private Game game;
-
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		initArrays();
@@ -50,6 +48,9 @@ public class gameController implements Initializable {
 				String cardRank = card.substring(iend + 1, card.length());
 				System.out.println(cardSuit + " "  + cardRank);
 				//game.layCards(card);
+				Card c = new Card(Integer.parseInt(cardRank), Integer.parseInt(cardSuit)); // borde ändra så card hämtas från game istället
+				System.out.println(c.toString());
+				game.layCards(c);
 				
 				//this.updateHand(this.playerCardSlots.indexOf(this.playerCardSlot1));
 				//Lägg klickat kort

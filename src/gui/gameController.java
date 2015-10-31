@@ -58,6 +58,7 @@ public class gameController implements Initializable {
 					int iend = card.indexOf("_");
 					int cardSuit = Integer.parseInt(card.substring(0, iend));
 					int cardValue = Integer.parseInt(card.substring(iend + 1, card.length()));
+					System.out.println(cardSuit + " " + cardValue);
 					game.layCards(new Card(CardValue.values()[cardValue - 2], Suit.values()[cardSuit]));
 					playersCards();
 					tableCards();

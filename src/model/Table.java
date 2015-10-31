@@ -44,36 +44,24 @@ public class Table {
 					}
 				}
 			}
-			// Takes away card from table if not test
-			/*if (test == false) {
-				for (int i = 0; i < cards.size(); i++) {
-					//System.out.println("ok");
-					int tableCardValue = cards.get(i).getCardValueInt();
-					System.out.println(tableCardValue);
-					for (Card c : hs) {
-						if (tableCardValue == c.getCardValueInt()) {
-							System.out.println("1");
-							cards.remove(i);
-						} else if(tableCardValue == 1 && target == 14) {
-							System.out.println("5");
-							cards.remove(i);
-						}
-					}
-				}*/
 		}
 
 		if (sum >= target)
 			return;
 
-		for (int i = 0; i < cardsLenght;i++) {
+		for (int i = 0; i < remaining.size() ;i++) {
 			ArrayList<Card> newRemaining = new ArrayList<>();
+			/*for (Card c : remaining) {
+				System.out.println(c);
+			}*/
+			Card n = remaining.get(i);
 
-			for (int j = i+1; j < cardsLenght; j++) 
+			for (int j = i + 1; j < remaining.size(); j++) 
 				newRemaining.add(remaining.get(j));
 
 			ArrayList<Card> partial_rec = new ArrayList<Card>(partial);
 
-			partial_rec.add(remaining.get(i));
+			partial_rec.add(n);
 
 			// Rescursive, calling same method but with diffrent values since last time
 			addCardRecursive(newRemaining, target, partial_rec, test);             

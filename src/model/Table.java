@@ -24,7 +24,6 @@ public class Table {
 		// Gör ess till ett
 		// Retunera alla ess
 		int sum = 0;
-		int cardsLenght = remaining.size();
 
 		for (Card c: partial) 
 			sum += c.getCardValueInt();
@@ -40,6 +39,7 @@ public class Table {
 					for (Card targetCard : hs) {
 						if (cards.get(i).getCardValueInt() == targetCard.getCardValueInt()) {
 							cards.remove(i);
+							i--;
 						}
 					}
 				}
@@ -51,9 +51,7 @@ public class Table {
 
 		for (int i = 0; i < remaining.size() ;i++) {
 			ArrayList<Card> newRemaining = new ArrayList<>();
-			/*for (Card c : remaining) {
-				System.out.println(c);
-			}*/
+
 			Card n = remaining.get(i);
 
 			for (int j = i + 1; j < remaining.size(); j++) 
@@ -77,6 +75,9 @@ public class Table {
 		returnCards = new ArrayList<Card>();
 		int cardValue = card.getCardValueInt();
 		addCardRecursive(cards, cardValue, new ArrayList<Card>(), test);
+		if (returnCards.isEmpty())
+			cards.add(card);
+		
 		// retunera även kortet man får om det passar
 		return returnCards;
 	}

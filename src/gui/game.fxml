@@ -10,32 +10,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.gameController">
    <center>
-      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="147.0" prefWidth="668.0" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fx:id="tableCardSlot1" fitHeight="140.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/0.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="tableCardSlot2" fitHeight="140.0" fitWidth="180.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/0.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="tableCardSlot3" fitHeight="140.0" fitWidth="180.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/0.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="tableCardSlot4" fitHeight="140.0" fitWidth="86.0" layoutX="97.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/0.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="tableCardSlot5" fitHeight="140.0" fitWidth="107.0" layoutX="271.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="tableCardSlot51" fitHeight="140.0" fitWidth="107.0" layoutX="357.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="tableCardSlot511" fitHeight="140.0" fitWidth="107.0" layoutX="464.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
-         </children></HBox>
+      <HBox fx:id="hboxCenter" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="147.0" prefWidth="668.0" BorderPane.alignment="CENTER" />
    </center>
    <left>
       <VBox alignment="CENTER" prefHeight="570.0" prefWidth="196.0" BorderPane.alignment="CENTER">

@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import model.Card;
 import model.CardValue;
 import model.Suit;
@@ -21,6 +22,8 @@ public class gameController implements Initializable {
 	private ImageView tableCardSlot1, tableCardSlot2, tableCardSlot3, tableCardSlot4;
 	@FXML
 	private ArrayList<ImageView> tableCardSlots;
+	@FXML
+	private HBox hboxCenter;
 	
 	private Game game;
 
@@ -90,15 +93,24 @@ public class gameController implements Initializable {
 	
 	public void tableCards() {
 		ArrayList<Card> table = game.showTableCards();
+		hboxCenter.getChildren().clear();
 		
-		for(ImageView view : tableCardSlots) {
+		/*for(ImageView view : tableCardSlots) {
 			view.setImage(new Image(gameController.class.getResourceAsStream("../resources/transparent.png")));
-		}
+		}*/
 		
 		for (int i = 0; i < table.size(); i++) {
 			String cardNameImg = "../resources/" + table.get(i).getSuitInt() + "_" + table.get(i).getCardValueInt() + ".png";
 			Image image = new Image(gameController.class.getResourceAsStream(cardNameImg));
-			tableCardSlots.get(i).setImage(image);
+			
+			ImageView view = new ImageView();
+			
+			 view.fitWidthProperty().bind(image.widthProperty());
+			
+			view.setImage(image);
+			
+			hboxCenter.getChildren().add(view);
+			
 		}
 	}
 	

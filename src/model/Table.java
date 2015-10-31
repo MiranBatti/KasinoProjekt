@@ -106,5 +106,9 @@ public class Table {
 			System.out.println("No more cards to remove");
 		}
 	}
+	
+	public void removeCardsFromTable() {
+		cards.clear();
+	}
 }
 

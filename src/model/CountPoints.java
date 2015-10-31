@@ -184,4 +184,8 @@ public class CountPoints {
 		return value;
 	}
 	
+	public int playerPoints(int player) {
+		return playersScoreList[player];
+	}
+	
 }

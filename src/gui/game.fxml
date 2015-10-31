@@ -15,7 +15,7 @@
    <left>
       <VBox fx:id="vboxLeft" alignment="CENTER" prefHeight="570.0" prefWidth="196.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Player 3">
+            <Label text="Player 4">
                <font>
                   <Font size="20.0" />
                </font>
@@ -60,7 +60,7 @@
                   </ImageView>
                </children>
             </HBox>
-            <Label text="Score: 0">
+            <Label fx:id="lblComputer3" text="Score: 0">
                <font>
                   <Font size="20.0" />
                </font>
@@ -110,7 +110,7 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin>
             </ImageView>
-            <Label text="Score: 0">
+            <Label fx:id="lblComputer1" text="Score: 0">
                <font>
                   <Font size="20.0" />
                </font>
@@ -163,7 +163,7 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin>
             </ImageView>
-            <Label text="Score: 0">
+            <Label fx:id="lblPlayer" text="Score: 0">
                <font>
                   <Font size="20.0" />
                </font>
@@ -176,7 +176,7 @@
    <right>
       <VBox fx:id="vboxRight" alignment="CENTER" prefHeight="570.0" prefWidth="192.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Player 4">
+            <Label text="Player 3">
                <font>
                   <Font size="20.0" />
                </font>
@@ -221,7 +221,7 @@
                   </ImageView>
                </children>
             </HBox>
-            <Label text="Score: 0">
+            <Label fx:id="lblComputer2" text="Score: 0">
                <font>
                   <Font size="20.0" />
                </font>

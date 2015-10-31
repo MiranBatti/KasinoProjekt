@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import controller.Game;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -38,6 +39,14 @@ public class gameController implements Initializable {
 	private VBox vboxRight;
 	@FXML
 	private VBox vboxLeft;
+	@FXML
+	private Label lblPlayer;
+	@FXML
+	private Label lblComputer1;
+	@FXML
+	private Label lblComputer2;
+	@FXML
+	private Label lblComputer3;
 	
 	private ArrayList<ImageView> playerCardSlots;
 	private ArrayList<ImageView> computer1CardSlots;
@@ -94,7 +103,8 @@ public class gameController implements Initializable {
 							newCardsComputer();
 						} else {  
 							boolean round = game.newRound();
-							if (round == false) {
+							addScore();
+							if (round == true) {
 								gameEnded();
 							}
 						}
@@ -108,6 +118,17 @@ public class gameController implements Initializable {
 	/*public void newRound() {
 		
 	}*/
+	
+	public void addScore() {
+		hboxCenter.getChildren().clear();
+		
+		lblPlayer.setText("Score: " + game.getCountPoints().playerPoints(0));
+		lblComputer1.setText("Score: " + game.getCountPoints().playerPoints(1));
+		if (players == 3)
+			lblComputer2.setText("Score: " + game.getCountPoints().playerPoints(2));
+		if (players == 4)
+			lblComputer3.setText("Score: " + game.getCountPoints().playerPoints(3));
+	}
 	
 	public void gameEnded() {
 		System.out.println("SLUT");

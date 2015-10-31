@@ -140,6 +140,7 @@ public class Game {
 	}
 	
 	public boolean newRound() {
+		table.removeCardsFromTable();
 		cp.valueCards(0, player.getPointsCard());
 		for (int i = 1; i < computersPlayer.size(); i++) {
 			cp.valueCards(i, computersPlayer.get(i).getPointsCard());
@@ -171,5 +172,9 @@ public class Game {
 	
 	public Player getPlayer() {
 		return player;
+	}
+	
+	public CountPoints getCountPoints() {
+		return cp;
 	}
 }

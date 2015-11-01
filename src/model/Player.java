@@ -6,11 +6,11 @@ public abstract class Player {
 	
 	// only Access to sub-classes
 	ArrayList<Card> cards;
-	ArrayList<Card> pointsCard;
+	ArrayList<Card> pointsCards;
 	
 	public Player(ArrayList<Card> cards) {
 		this.cards = cards;
-		pointsCard = new ArrayList<Card>();
+		pointsCards = new ArrayList<Card>();
 	}
 	
 	public void newCards(ArrayList<Card> cards) {
@@ -26,10 +26,10 @@ public abstract class Player {
 	}
 	
 	public void addPointsCard(ArrayList<Card> pointsCard) {
-		this.pointsCard = pointsCard;
+		this.pointsCards = pointsCard;
 	}
 	
 	public ArrayList<Card> getPointsCard() {
-		return pointsCard;
+		return pointsCards;
 	}
 }

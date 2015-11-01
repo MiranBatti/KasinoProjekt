@@ -83,12 +83,8 @@ public class Game {
 	 */
 	private ArrayList<Card> takeFourCards(){
 		ArrayList<Card> cardsToDeal = new ArrayList<Card>();
-		System.out.println(deck.amountOfCards());
-		
-		System.out.println(deck.amountOfCards());
-		System.out.println(deck.amountOfCards());
-		System.out.println(deck.amountOfCards());
-		System.out.println(deck.amountOfCards());
+		//System.out.println(deck.amountOfCards());
+
 		if (deck.amountOfCards() >= 4) {
 			for (int i = 0; i < 4; i++) {
 				cardsToDeal.add(deck.getCards().get(i));
@@ -146,8 +142,18 @@ public class Game {
 			cp.valueCards(i, computersPlayer.get(i).getPointsCard());
 		}
 		cp.roundEnd();
+		boolean gameEnded = cp.gameEnded();
+	
+		if(gameEnded == false) {
+			deck.newRound();
+			dealNewCards();
+		}
 		
-		return cp.gameEnded();
+		if (gameEnded == false) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	public int getDeckAmountCards() {

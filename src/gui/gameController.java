@@ -90,12 +90,11 @@ public class gameController implements Initializable {
 					int iend = card.indexOf("_");
 					int cardSuit = Integer.parseInt(card.substring(0, iend));
 					int cardValue = Integer.parseInt(card.substring(iend + 1, card.length()));
-					System.out.println(cardSuit + " " + cardValue);
+					//System.out.println(cardSuit + " " + cardValue);
 					game.layCards(new Card(CardValue.values()[cardValue - 2], Suit.values()[cardSuit]));
 					tableCards();
 					changeComputerCards(game.showPlayerHand().size());
 					playerHand = game.showPlayerHand();
-					System.out.println(playerHand);
 					
 					if (playerHand.isEmpty()) {
 						boolean newCards = game.dealNewCards();
@@ -105,6 +104,9 @@ public class gameController implements Initializable {
 							boolean round = game.newRound();
 							addScore();
 							if (round == true) {
+								newCardsComputer();
+								tableCards();
+							} else {
 								gameEnded();
 							}
 						}

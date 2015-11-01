@@ -13,7 +13,7 @@ public class PlayerHuman extends Player {
 	public void cardOnTable(Card card) {
 		for (int i = 0; i < cards.size(); i++) {
 			if (cards.get(i).toString().equals(card.toString())) {
-				pointsCard.addAll(table.addCard(cards.get(i), false));
+				pointsCards.addAll(table.addCard(cards.get(i), false));
 				cards.remove(i);
 			}
 		}

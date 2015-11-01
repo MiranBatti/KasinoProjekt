@@ -11,20 +11,20 @@ public class PlayerComputerMedium extends Player implements CardOnTableComputer 
 	}
 	
 	public void cardOnTable() {
-		int hegiestRanked = 0;
-		int hegiestIndex = 0;
-		
+		int index = 0;
+
 		for (int i = 0; i < cards.size(); i++) {
 			Card card = cards.get(i);
 			ArrayList<Card> cardsReturned = table.addCard(card, true);
 			int rankAllCards = RankCard.rankAll(cardsReturned);
 			
-			if (rankAllCards > hegiestRanked) {
-				hegiestIndex = i;
-				hegiestRanked = rankAllCards;
+			if (rankAllCards > 0) {
+				index = i;
+				break;
 			}
 		}
-		cards.remove(hegiestIndex);
+		pointsCards = table.addCard(cards.get(index), false);
+		cards.remove(index);
 	}
 
 }

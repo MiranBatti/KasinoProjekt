@@ -7,6 +7,7 @@ public class Table {
 
 	ArrayList<Card> cards;
 	ArrayList<Card> returnCards;
+	HashSet<Card> hs;
 
 	public Table(ArrayList<Card> cards) {
 		this.cards = cards;
@@ -25,14 +26,18 @@ public class Table {
 		// Retunera alla ess
 		int sum = 0;
 
-		for (Card c: partial) 
+		for (Card c : partial) 
 			sum += c.getCardValueInt();
+		
+		/*for (Card c : remaining) {
+			if (c.getCardValue() == CardValue.ACE)
+				c.setCardValueInt(1);
+		}*/
 
 
 		// Sets cards that match target or combo of it to returnCards
 		if (sum == target) {
-			HashSet<Card> hs = new HashSet<>(partial);
-			returnCards.addAll(hs);
+			hs.addAll(partial);
 
 			if (test == false) {
 				ArrayList<Card> deleteCards = new ArrayList<>();
@@ -73,13 +78,26 @@ public class Table {
 	 * @return
 	 */
 	public ArrayList<Card> addCard(Card card, boolean test) {
+		System.out.println(card);
 		returnCards = new ArrayList<Card>();
+		hs = new HashSet<>();
 		int cardValue = card.getCardValueInt();
 		addCardRecursive(cards, cardValue, new ArrayList<Card>(), test);
+		returnCards.addAll(hs);
+		
 		if (returnCards.isEmpty())
 			cards.add(card);
+		else
+			returnCards.add(card);
 		
-		// retunera även kortet man får om det passar
+		/*for(Card c : returnCards) {
+			if (c.getCardValue() == CardValue.ACE) {
+				c.setCardValueInt(14);
+			}
+		}*/
+		
+		System.out.println(returnCards);
+		
 		return returnCards;
 	}
 

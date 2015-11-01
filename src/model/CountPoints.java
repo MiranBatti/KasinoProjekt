@@ -65,7 +65,7 @@ public class CountPoints {
 	 * Checks who has most spades and cards which equals one point for both
 	 * Also gives one extra point if a player wins both
 	 */
-	public boolean roundEnd() {
+	public void roundEnd() {
 		ArrayList<Integer> mostCards = givePointToHighest(amountOfCards);
 		ArrayList<Integer> mostSpades = givePointToHighest(amountOfSpades);
 		
@@ -77,8 +77,6 @@ public class CountPoints {
 		// New round 
 		amountOfCards = new int[players];
 		amountOfSpades = new int[players];
-		
-		return gameEnded();
 	}
 	
 	/**

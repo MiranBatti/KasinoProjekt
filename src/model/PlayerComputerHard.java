@@ -12,19 +12,21 @@ public class PlayerComputerHard extends Player implements CardOnTableComputer {
 	}
 	
 	public void cardOnTable() {
-		int index = 0;
-
+		int hegiestRanked = 0;
+		int hegiestIndex = 0;
+		
 		for (int i = 0; i < cards.size(); i++) {
 			Card card = cards.get(i);
 			ArrayList<Card> cardsReturned = table.addCard(card, true);
 			int rankAllCards = RankCard.rankAll(cardsReturned);
 			
-			if (rankAllCards > 0) {
-				index = i;
-				break;
+			if (rankAllCards > hegiestRanked) {
+				hegiestIndex = i;
+				hegiestRanked = rankAllCards;
 			}
 		}
-		cards.remove(index);
+		pointsCards = table.addCard(cards.get(hegiestIndex), false);
+		cards.remove(hegiestIndex);
 	}
 
 }

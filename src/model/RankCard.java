@@ -2,16 +2,24 @@ package model;
 
 import java.util.ArrayList;
 
-public final class RankCard {
+public class RankCard {
 	
-	private RankCard() {}
+	private int takeCardValue;
+	
+	public RankCard() {
+		// Standard value
+		takeCardValue = 5;
+	}
+	public RankCard(int takeCardValue) {
+		this.takeCardValue = takeCardValue;
+	}
 	
 	/**
 	 * Rank card so computer can check what card to lay on table will result in the best card
 	 * @param card
 	 * @return
 	 */
-	public static int rank(Card card) {
+	public int rank(Card card) {
 		/*
 		 * The int values is not random. The value is to make sure if a player sends in a amount of card that the amount with point card always get heigest value
 		 */
@@ -40,7 +48,7 @@ public final class RankCard {
 	 * @param cards
 	 * @return
 	 */
-	public static int rankAll(ArrayList<Card> cards) {
+	public int rankAll(ArrayList<Card> cards) {
 		int totalValue = 0;
 		
 		for (Card c : cards) {
@@ -48,6 +56,13 @@ public final class RankCard {
 		}
 		
 		return totalValue;
+	}
+	
+	public boolean takeCards(int value) {
+		boolean take = false;
+		if (value >= takeCardValue)
+			take = true;
+		return take;
 	}
 	
 }

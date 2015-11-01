@@ -138,8 +138,8 @@ public class Game {
 	public boolean newRound() {
 		table.removeCardsFromTable();
 		cp.valueCards(0, player.getPointsCard());
-		for (int i = 1; i < computersPlayer.size(); i++) {
-			cp.valueCards(i, computersPlayer.get(i).getPointsCard());
+		for (int i = 0; i < computersPlayer.size(); i++) {
+			cp.valueCards(i + 1, computersPlayer.get(i).getPointsCard());
 		}
 		cp.roundEnd();
 		boolean gameEnded = cp.gameEnded();

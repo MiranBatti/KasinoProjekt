@@ -13,6 +13,9 @@ import model.Deck;
 import model.Player;
 import model.Table;
 
+/**
+ * Creates Controller.
+ */
 public class Game {
 	private PlayerHuman player;
 	private Table table;
@@ -22,6 +25,13 @@ public class Game {
 	private int nbrOfPlayers;
 	private CountPoints cp;
 	
+	/**
+	 * Difficulty sould be between 0-2.
+	 * <br>
+	 * Number of players sould be between 2-4.
+	 * @param nbrOfPlayers
+	 * @param difficulty
+	 */
 	public Game(int nbrOfPlayers, int difficulty) {
 		setNbrOfPlayers(nbrOfPlayers);
 		deck = new Deck();
@@ -32,8 +42,9 @@ public class Game {
 	}
 	
 	/**
-	 * Game can have between 2-4 players
-	 * Method to make sure the value is set correctly
+	 * Game can have between 2-4 players.
+	 * <br>
+	 * Method to make sure the value is set correctly.
 	 * @param nbrOfPlayers
 	 */
 	private void setNbrOfPlayers(int nbrOfPlayers) {
@@ -47,7 +58,7 @@ public class Game {
 	}
 	
 	/**
-	 * Create Computers to play with
+	 * Create Computers to play with.
 	 * @param difficulty
 	 */
 	private void createComputers(int difficulty) {
@@ -78,12 +89,11 @@ public class Game {
 	}
 	
 	/**
-	 * Every player sould take four cards when it begins
+	 * Every player sould take four cards when it begins.
 	 * @return
 	 */
 	private ArrayList<Card> takeFourCards(){
 		ArrayList<Card> cardsToDeal = new ArrayList<Card>();
-		//System.out.println(deck.amountOfCards());
 
 		if (deck.amountOfCards() >= 4) {
 			for (int i = 0; i < 4; i++) {
@@ -94,6 +104,10 @@ public class Game {
 		return cardsToDeal;
 	}
 	
+	/**
+	 * Deals new cards to all players.
+	 * @return
+	 */
 	public boolean dealNewCards() {
 		boolean enought = CheckEnoughtCardsDeck(getDeckAmountCards());
 		
@@ -103,10 +117,13 @@ public class Game {
 				computer.newCards(takeFourCards());
 			}
 		}
-		
 		return enought;
 	}
 	
+	/**
+	 * PlayerHuman sends card he want to lay on table and computers card to lay on table handles auto.
+	 * @param card
+	 */
 	public void layCards(Card card) {
 		player.cardOnTable(card);
 		if (table.getNumberOfCards() == 0) {
@@ -122,6 +139,11 @@ public class Game {
 		}
 	}
 	
+	/**
+	 * Helper class to avoid null when Deck has no cards.
+	 * @param cards
+	 * @return
+	 */
 	private boolean CheckEnoughtCardsDeck(int cards) {
 		boolean enought = true;
 		
@@ -135,6 +157,10 @@ public class Game {
 		return enought;
 	}
 	
+	/**
+	 * Coints every players coint cards and return false if game has ended.
+	 * @return
+	 */
 	public boolean newRound() {
 		table.removeCardsFromTable();
 		cp.valueCards(0, player.getPointsCard());
@@ -156,30 +182,58 @@ public class Game {
 		}
 	}
 	
+	/**
+	 * Returns amount of cards in deck.
+	 * @return
+	 */
 	public int getDeckAmountCards() {
 		return deck.amountOfCards();
 	}
 	
+	/**
+	 * Returns cards on table.
+	 * @return
+	 */
 	public ArrayList<Card> showTableCards() {
 		return table.showCards();
 	}
 	
+	/**
+	 * Returns HumanPlayer hand
+	 * @return
+	 */
 	public ArrayList<Card> showPlayerHand() {
 		return player.showHand();
 	}
 	
+	/**
+	 * Returns deck.
+	 * @return
+	 */
  	public Deck getDeck() {
  		return deck;
  	}
 	
+ 	/**
+ 	 * Returns table.
+ 	 * @return
+ 	 */
 	public Table getTable() {
 		return table;
 	}
 	
+	/**
+	 * Return HumanPlayer player.
+	 * @return
+	 */
 	public Player getPlayer() {
 		return player;
 	}
 	
+	/**
+	 * Returns countPoints.
+	 * @return
+	 */
 	public CountPoints getCountPoints() {
 		return cp;
 	}

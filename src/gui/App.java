@@ -7,7 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 /**
- *  Start point for Application when using GUI
+ *  Start point for Application when using GUI.
  */
 public class App extends Application {
 	
@@ -16,15 +16,16 @@ public class App extends Application {
 	private int difficulty;
 
 	/**
-	 * Construktor
+	 * Construktor.
 	 */
     public App() {
         instance = this;
     }
 
     /**
-     * Return App instance
-     * purpose of this method is to use the instace to get number of players and difficulty level
+     * Return App instance.
+     * <br>
+     * purpose of this method is to use the instace to get number of players and difficulty level.
      * @return
      */
     public static App getInstance() {
@@ -32,7 +33,7 @@ public class App extends Application {
     }
 	
 	/**
-	 * Setup JavaFx Application
+	 * Setup JavaFx Application.
 	 */
 	@Override
 	public void start(Stage primaryStage) {
@@ -49,7 +50,7 @@ public class App extends Application {
 	}
 	
 	/**
-	 * Start application
+	 * Start application.
 	 * @param args
 	 */
 	public static void main(String[] args) {
@@ -57,7 +58,7 @@ public class App extends Application {
 	}
 	
 	/**
-	 * Get numbers of players
+	 * Get numbers of players.
 	 * @return
 	 */
 	public int getPlayers() {
@@ -65,7 +66,7 @@ public class App extends Application {
 	}
 
 	/**
-	 * Set numnbers of players
+	 * Set numnbers of players.
 	 * @param players
 	 */
 	public void setPlayers(int players) {
@@ -73,7 +74,7 @@ public class App extends Application {
 	}
 	
 	/**
-	 * Get difficulty level
+	 * Get difficulty level.
 	 * @return
 	 */
 	public int getDifficulty() {
@@ -81,11 +82,10 @@ public class App extends Application {
 	}
 	
 	/**
-	 * Set difficulty level
+	 * Set difficulty level.
 	 * @param difficulty
 	 */
 	public void setDifficulty(int difficulty) {
 		this.difficulty = difficulty;
 	}
-	
 }

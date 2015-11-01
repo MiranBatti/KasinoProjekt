@@ -4,9 +4,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import controller.Game;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -15,14 +15,15 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.layout.VBoxBuilder;
-import javafx.scene.shape.Box;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Card;
 import model.CardValue;
 import model.Suit;
 
+/**
+ * Controller for game.fxml
+ */
 public class gameController implements Initializable {
 	@FXML
 	private ImageView playerCardSlot1, playerCardSlot2, playerCardSlot3, playerCardSlot4;
@@ -75,6 +76,11 @@ public class gameController implements Initializable {
 	private Game game;
 	private ArrayList<Card> playerHand;
 
+	/**
+	 * Sets every component needed.
+	 * <br>
+	 * Can't use a Construktor for JavaFx Controller
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		players = App.getInstance().getPlayers();
@@ -86,6 +92,9 @@ public class gameController implements Initializable {
 		setComputersCard();
 	}
 	
+	/**
+	 * Init ArrayLists to make it easier to controll the GUI.
+	 */
 	public void initArrays() {
 		playerCardSlots = new ArrayList<ImageView>();
 		playerCardSlots.add(playerCardSlot1);
@@ -112,7 +121,9 @@ public class gameController implements Initializable {
 		computer3CardSlots.add(computer3CardSlot4);
 	}
 	
-	// Ha alla listerns här
+	/**
+	 * Sets listener for click event on HumanPlayer cards and what will happend on event.
+	 */
 	public void setListeners() {	
 		for (ImageView imageView : playerCardSlots) {
 			imageView.setOnMouseClicked(e -> {
@@ -121,7 +132,6 @@ public class gameController implements Initializable {
 					int iend = card.indexOf("_");
 					int cardSuit = Integer.parseInt(card.substring(0, iend));
 					int cardValue = Integer.parseInt(card.substring(iend + 1, card.length()));
-					//System.out.println(cardSuit + " " + cardValue);
 					game.layCards(new Card(CardValue.values()[cardValue - 2], Suit.values()[cardSuit]));
 					tableCards();
 					changeComputerCards(game.showPlayerHand().size());
@@ -148,10 +158,9 @@ public class gameController implements Initializable {
 		}
 	}
 	
-	/*public void newRound() {
-		
-	}*/
-	
+	/**
+	 * Add score to labels in the application.
+	 */
 	public void addScore() {
 		hboxCenter.getChildren().clear();
 		
@@ -163,12 +172,9 @@ public class gameController implements Initializable {
 			lblComputer3.setText("Score: " + game.getCountPoints().playerPoints(3));
 	}
 	
-	public void gameEnded() {
-		ConfirmBox.display("Game ended", "Game is over!");
-		System.out.println("SLUT");
-	}
-	
-	// Delar ut kort till player, kanske ändrar koden sen
+	/**
+	 * Adds every card player has on hand.
+	 */
 	public void playersCards() {
 		ArrayList<Card> playerHand = game.showPlayerHand();
 		
@@ -185,6 +191,9 @@ public class gameController implements Initializable {
 		}
 	}
 	
+	/**
+	 * Adds every card table has.
+	 */
 	public void tableCards() {
 		ArrayList<Card> table = game.showTableCards();
 		hboxCenter.getChildren().clear();
@@ -201,6 +210,9 @@ public class gameController implements Initializable {
 		}
 	}
 	
+	/**
+	 * Takes away unnecessary cards.
+	 */
 	public void setComputersCard() {
 		if (players == 2) {
 			vboxRight.getChildren().clear();
@@ -211,6 +223,9 @@ public class gameController implements Initializable {
 		}	
 	}
 	
+	/**
+	 * Every computer gets new cards.
+	 */
 	public void newCardsComputer() {
 		for (int i = 0; i < 4; i++) {
 			computer1CardSlots.get(i).setImage(new Image(gameController.class.getResourceAsStream("../resources/0.png")));
@@ -222,6 +237,10 @@ public class gameController implements Initializable {
 		}
 	}
 	
+	/**
+	 * Hides card images that are not in play.
+	 * @param cards
+	 */
 	public void changeComputerCards(int cards) {
 		int hideCards = 4 - cards;
 		for (int i = 0; i < hideCards; i++) {
@@ -232,5 +251,72 @@ public class gameController implements Initializable {
 				computer2CardSlots.get(i).setImage(new Image(gameController.class.getResourceAsStream("../resources/transparent.png")));
 				computer3CardSlots.get(i).setImage(new Image(gameController.class.getResourceAsStream("../resources/transparent.png")));
 		}
+	}
+	
+	/**
+	 * Shows a confirm box when game has ended to close program and show the winner.
+	 */
+	public void gameEnded() {
+		ArrayList<Integer> winner = game.getCountPoints().getPlayerHigestPoints();
+		String winnerString = "";
+		
+		for (Integer w : winner) {
+			switch (w) {
+			case 0:
+				winnerString += "You, ";
+				break;
+			case 1:
+				winnerString += "Computer 1, ";
+				break;
+			case 2:
+				winnerString += "Computer 2, ";
+				break;
+			case 3:
+				winnerString += "Computer 3, ";
+				break;
+			}
+		}
+		winnerString += "WON!";
+		
+		Stage endStage = new Stage();
+		endStage.initModality(Modality.APPLICATION_MODAL);
+		endStage.setTitle("Game ended");
+		endStage.setWidth(200);
+		
+		Label lblMessage = new Label(winnerString);
+		Button close = new Button("Close");
+		close.getStyleClass().add("button-checkbox");
+		Button newGame = new Button("New Game");
+		
+		
+		close.setOnAction(e -> {
+			Platform.exit();
+			System.exit(0);
+		});
+		
+		/*newGame.setOnAction(e -> {
+			try {
+				Parent gameParent = FXMLLoader.load(getClass().getResource("menu.fxml"));
+				Scene gameScene = new Scene(gameParent, 400, 400);
+				Stage primaryStage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+				primaryStage.hide();
+				primaryStage.setScene(gameScene);
+				primaryStage.show();
+			} catch (IOException event) {
+				event.printStackTrace();
+			}
+		});*/
+		
+		HBox layout = new HBox(10);
+		layout.getChildren().addAll(close, newGame);
+		layout.setAlignment(Pos.CENTER);
+		
+		VBox mainLayout = new VBox(10);
+		mainLayout.getChildren().addAll(lblMessage, layout);
+		mainLayout.setAlignment(Pos.CENTER);
+		
+		Scene scene = new Scene(mainLayout);
+		endStage.setScene(scene);
+		endStage.show();
 	}
 }

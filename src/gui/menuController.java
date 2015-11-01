@@ -15,8 +15,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.stage.Stage;
 
+/**
+ * Controller for menu.fxml
+ */
 public class menuController implements Initializable {
-	
 	@FXML
 	private Button startBtn;
 	@FXML

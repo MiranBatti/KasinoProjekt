@@ -87,7 +87,7 @@ public class CountPoints {
 	 * Returns player/players with hegiest score
 	 * @return
 	 */
-	public ArrayList<Integer> getPointList() {
+	public ArrayList<Integer> getPlayerHigestPoints() {
 		return givePointToHighest(playersScoreList);
 	}
 	

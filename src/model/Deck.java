@@ -47,16 +47,6 @@ public class Deck {
 	}
 	
 	/**
-	 * Prints out all cards. For testing purposes.
-	 */
-	public void printAllCards() {
-		System.out.println("\n");
-		for (Card card : deck) {
-			System.out.println(card);
-		}
-	}
-	
-	/**
 	 * Return amount of cards left in deck.
 	 * @return
 	 */

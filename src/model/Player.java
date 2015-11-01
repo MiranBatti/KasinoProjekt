@@ -37,7 +37,7 @@ public abstract class Player {
 	
 	/**
 	 * Show player cards.
-	 * @return
+	 * @return cards
 	 */
 	public ArrayList<Card> showHand() {
 		return cards;
@@ -53,7 +53,7 @@ public abstract class Player {
 	
 	/**
 	 * Return points the card is worth.
-	 * @return
+	 * @return pointsCard
 	 */
 	public ArrayList<Card> getPointsCard() {
 		return pointsCards;

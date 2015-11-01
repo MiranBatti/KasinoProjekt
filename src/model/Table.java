@@ -125,14 +125,6 @@ public class Table {
 	}
 
 	/**
-	 * Returns amount of cards on table.
-	 * @return
-	 */
-	public int nbrOfCards() {
-		return cards.size();
-	}
-
-	/**
 	 * Remove a card from table at specific index.
 	 * @param index
 	 */

@@ -26,7 +26,7 @@ public class Game {
 	private CountPoints cp;
 	
 	/**
-	 * Difficulty sould be between 0-2.
+	 * Difficulty should be between 0-2.
 	 * <br>
 	 * Number of players sould be between 2-4.
 	 * @param nbrOfPlayers
@@ -89,8 +89,8 @@ public class Game {
 	}
 	
 	/**
-	 * Every player sould take four cards when it begins.
-	 * @return
+	 * Every player sould take four cards when the game begins.
+	 * @return ArrayList<Card>
 	 */
 	private ArrayList<Card> takeFourCards(){
 		ArrayList<Card> cardsToDeal = new ArrayList<Card>();
@@ -106,22 +106,22 @@ public class Game {
 	
 	/**
 	 * Deals new cards to all players.
-	 * @return
+	 * @return boolean
 	 */
 	public boolean dealNewCards() {
-		boolean enought = CheckEnoughtCardsDeck(getDeckAmountCards());
+		boolean enough = checkEnoughCardsInDeck(getDeckAmountCards());
 		
-		if (enought == true) {
+		if (enough == true) {
 			player.newCards(takeFourCards());
 			for (Player computer : computersPlayer) {
 				computer.newCards(takeFourCards());
 			}
 		}
-		return enought;
+		return enough;
 	}
 	
 	/**
-	 * PlayerHuman sends card he want to lay on table and computers card to lay on table handles auto.
+	 * PlayerHuman sends card he want to lay on table, and computers lays cards automatically.
 	 * @param card
 	 */
 	public void layCards(Card card) {
@@ -141,25 +141,26 @@ public class Game {
 	
 	/**
 	 * Helper class to avoid null when Deck has no cards.
+	 * Check if there are cards in the deck.
 	 * @param cards
-	 * @return
+	 * @return boolean
 	 */
-	private boolean CheckEnoughtCardsDeck(int cards) {
-		boolean enought = true;
+	private boolean checkEnoughCardsInDeck(int cards) {
+		boolean enough = true;
 		
 		if (nbrOfPlayers == 2 && cards < 8)
-			enought = false;
+			enough = false;
 		else if (nbrOfPlayers == 3 && cards < 12)
-			enought = false;
+			enough = false;
 		else if (nbrOfPlayers == 4 && cards < 16)
-			enought = false;
+			enough = false;
 			
-		return enought;
+		return enough;
 	}
 	
 	/**
-	 * Coints every players coint cards and return false if game has ended.
-	 * @return
+	 * Counts every players card scores and return false if game has ended.
+	 * @return boolean
 	 */
 	public boolean newRound() {
 		table.removeCardsFromTable();
@@ -184,7 +185,7 @@ public class Game {
 	
 	/**
 	 * Returns amount of cards in deck.
-	 * @return
+	 * @return int
 	 */
 	public int getDeckAmountCards() {
 		return deck.amountOfCards();
@@ -192,7 +193,7 @@ public class Game {
 	
 	/**
 	 * Returns cards on table.
-	 * @return
+	 * @return ArrayList<Card>
 	 */
 	public ArrayList<Card> showTableCards() {
 		return table.showCards();
@@ -200,7 +201,7 @@ public class Game {
 	
 	/**
 	 * Returns HumanPlayer hand
-	 * @return
+	 * @return ArrayList<Card>
 	 */
 	public ArrayList<Card> showPlayerHand() {
 		return player.showHand();
@@ -208,7 +209,7 @@ public class Game {
 	
 	/**
 	 * Returns deck.
-	 * @return
+	 * @return Deck
 	 */
  	public Deck getDeck() {
  		return deck;
@@ -216,7 +217,7 @@ public class Game {
 	
  	/**
  	 * Returns table.
- 	 * @return
+ 	 * @return Table
  	 */
 	public Table getTable() {
 		return table;
@@ -224,7 +225,7 @@ public class Game {
 	
 	/**
 	 * Return HumanPlayer player.
-	 * @return
+	 * @return Player
 	 */
 	public Player getPlayer() {
 		return player;
@@ -232,7 +233,7 @@ public class Game {
 	
 	/**
 	 * Returns countPoints.
-	 * @return
+	 * @return CountPoints
 	 */
 	public CountPoints getCountPoints() {
 		return cp;

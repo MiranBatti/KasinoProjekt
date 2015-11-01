@@ -27,7 +27,7 @@ public class RankCard {
 	/**
 	 * Rank card so computer can check what card to lay on table will result in the best card.
 	 * @param card
-	 * @return
+	 * @return value
 	 */
 	public int rank(Card card) {
 		/*
@@ -70,7 +70,7 @@ public class RankCard {
 	/**
 	 * Method for a computer to check if he sould take a card.
 	 * @param value
-	 * @return
+	 * @return take
 	 */
 	public boolean takeCards(int value) {
 		boolean take = false;

@@ -211,7 +211,7 @@ public class gameController implements Initializable {
 	}
 	
 	/**
-	 * Takes away unnecessary cards.
+	 * Removes unnecessary cards.
 	 */
 	public void setComputersCard() {
 		if (players == 2) {
@@ -266,13 +266,13 @@ public class gameController implements Initializable {
 				winnerString += "You, ";
 				break;
 			case 1:
-				winnerString += "Computer 1, ";
+				winnerString += "Player 2, ";
 				break;
 			case 2:
-				winnerString += "Computer 2, ";
+				winnerString += "Player 3, ";
 				break;
 			case 3:
-				winnerString += "Computer 3, ";
+				winnerString += "Player 4, ";
 				break;
 			}
 		}

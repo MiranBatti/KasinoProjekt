@@ -2,20 +2,30 @@ package model;
 
 import java.util.ArrayList;
 
+/**
+ * Rank a hand for a computer to make sure he takes the best cards.
+ * <br>
+ */
 public class RankCard {
-	
 	private int takeCardValue;
 	
+	/**
+	 * Sets takeCardsValue to 5 as standard.
+	 */
 	public RankCard() {
-		// Standard value
 		takeCardValue = 5;
 	}
+	
+	/**
+	 * Sets what value a computer hands sould be to take cards.
+	 * @param takeCardValue
+	 */
 	public RankCard(int takeCardValue) {
 		this.takeCardValue = takeCardValue;
 	}
 	
 	/**
-	 * Rank card so computer can check what card to lay on table will result in the best card
+	 * Rank card so computer can check what card to lay on table will result in the best card.
 	 * @param card
 	 * @return
 	 */
@@ -44,7 +54,7 @@ public class RankCard {
 	}
 	
 	/**
-	 * Ranks a arrayList of cards
+	 * Ranks a arrayList of cards.
 	 * @param cards
 	 * @return
 	 */
@@ -54,15 +64,18 @@ public class RankCard {
 		for (Card c : cards) {
 			totalValue = rank(c);
 		}
-		
 		return totalValue;
 	}
 	
+	/**
+	 * Method for a computer to check if he sould take a card.
+	 * @param value
+	 * @return
+	 */
 	public boolean takeCards(int value) {
 		boolean take = false;
 		if (value >= takeCardValue)
 			take = true;
 		return take;
 	}
-	
 }

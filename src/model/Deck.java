@@ -16,8 +16,9 @@ public class Deck {
 		this.deck = new ArrayList<Card>();
 		newRound();
 	}
+	
 	/**
-	 * Clear and shuffle the when beginning a new round
+	 * Clear and shuffle the when beginning a new round.
 	 */
 	public void newRound() {
 		deck.clear();
@@ -31,14 +32,14 @@ public class Deck {
 	}
 	
 	/**
-	 * Shuffles the deck
+	 * Shuffles the deck.
 	 */
 	public void shuffleDeck() {
 		Collections.shuffle(deck);
 	}
 	
 	/**
-	 * Returns deck with Cards
+	 * Returns deck with Cards.
 	 * @return ArrayList
 	 */
 	public ArrayList<Card> getCards() {
@@ -47,21 +48,16 @@ public class Deck {
 	
 	/**
 	 * Prints out all cards. For testing purposes.
-	 * Iterate through all cards and when ACE is found
-	 * we change its value to 1.
 	 */
 	public void printAllCards() {
 		System.out.println("\n");
 		for (Card card : deck) {
-			if(card.getCardValue().equals(CardValue.ACE)){
-				card.setCardValueInt(1);
-			}
 			System.out.println(card);
 		}
 	}
 	
 	/**
-	 * Return amount of cards left in deck
+	 * Return amount of cards left in deck.
 	 * @return
 	 */
 	public int amountOfCards() {

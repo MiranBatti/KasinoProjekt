@@ -3,19 +3,26 @@ package model;
 import java.util.ArrayList;
 import java.util.HashSet;
 
+/**
+ * Cards that players lay on table.
+ */
 public class Table {
+	private ArrayList<Card> cards;
+	private ArrayList<Card> returnCards;
+	private HashSet<Card> hs;
 
-	ArrayList<Card> cards;
-	ArrayList<Card> returnCards;
-	HashSet<Card> hs;
-
+	/**
+	 * Give table start cards.
+	 * @param cards
+	 */
 	public Table(ArrayList<Card> cards) {
 		this.cards = cards;
 	}
 
 	/**
-	 * Method to give cards back depending on what cards is a combo of target card or if target card value is on table
-	 * Could also send in a test boolean to check what hand gives best card
+	 * Method to give cards back depending on what cards is a combo of target card or if target card value is on table.
+	 * <br>
+	 * Could also send in a test boolean to check what hand gives best card.
 	 * @param cards
 	 * @param target
 	 * @param partial
@@ -109,14 +116,26 @@ public class Table {
 		return cards.size();
 	}
 
+	/**
+	 * Returns all cards on table.
+	 * @return
+	 */
 	public ArrayList<Card> showCards() {
 		return cards;
 	}
 
+	/**
+	 * Returns amount of cards on table.
+	 * @return
+	 */
 	public int nbrOfCards() {
 		return cards.size();
 	}
 
+	/**
+	 * Remove a card from table at specific index.
+	 * @param index
+	 */
 	public void removeCardFromTable(int index) {
 		try {
 			cards.remove(index);			
@@ -125,6 +144,9 @@ public class Table {
 		}
 	}
 	
+	/**
+	 * Removes all cards from table.
+	 */
 	public void removeCardsFromTable() {
 		cards.clear();
 	}

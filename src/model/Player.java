@@ -20,7 +20,7 @@ public abstract class Player {
 	}
 	
 	/**
-	 * Deal new cards to player
+	 * Deal new cards to player.
 	 * @param cards
 	 */
 	public void newCards(ArrayList<Card> cards) {
@@ -28,7 +28,7 @@ public abstract class Player {
 	}
 	
 	/**
-	 * 
+	 * Add card to player.
 	 * @param card
 	 */
 	public void addCard(Card card) {
@@ -36,7 +36,7 @@ public abstract class Player {
 	}
 	
 	/**
-	 * Show player cards
+	 * Show player cards.
 	 * @return
 	 */
 	public ArrayList<Card> showHand() {
@@ -44,7 +44,7 @@ public abstract class Player {
 	}
 	
 	/**
-	 * Give points to player
+	 * Give points to player.
 	 * @param pointsCard
 	 */
 	public void addPointsCard(ArrayList<Card> pointsCard) {
@@ -52,7 +52,7 @@ public abstract class Player {
 	}
 	
 	/**
-	 * Return points the card is worth
+	 * Return points the card is worth.
 	 * @return
 	 */
 	public ArrayList<Card> getPointsCard() {

@@ -40,5 +40,4 @@ public class PlayerComputerHard extends Player implements CardOnTableComputer {
 		pointsCards = table.addCard(cards.get(hegiestIndex), false);
 		cards.remove(hegiestIndex);
 	}
-
 }

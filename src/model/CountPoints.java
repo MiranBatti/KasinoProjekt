@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- * Class to count points in a casino game
+ * Class to count points in a casino game.
  */
 public class CountPoints {
 	private int[] playersScoreList;
@@ -14,6 +14,7 @@ public class CountPoints {
 	private int gameEnd;
 
 	/**
+	 * Sets amount of players and at what point the game sould end.
 	 * @param players
 	 * @param gameEnd
 	 */
@@ -26,6 +27,7 @@ public class CountPoints {
 	}
 	
 	/**
+	 * * Sets amount of players and uses 15 as point to end game.
 	 * @param players
 	 */
 	public CountPoints(int players) {
@@ -37,8 +39,9 @@ public class CountPoints {
 	}
 	
 	/**
-	 * A sequence method to end round with every player hand counted for
-	 * Returns true if game is over
+	 * A sequence method to end round with every player hand counted for.
+	 * <br>
+	 * Returns true if game is over.
 	 * @param allPlayersCard
 	 * @return 
 	 */
@@ -50,8 +53,9 @@ public class CountPoints {
 	}
 	
 	/**
-	 * Checks who has most spades and cards which equals one point for both
-	 * Also gives one extra point if a player wins both
+	 * Checks who has most spades and cards which equals one point for both.
+	 * <br>
+	 * Also gives one extra point if a player wins both.
 	 */
 	public void roundEnd() {
 		ArrayList<Integer> mostCards = givePointToHighest(amountOfCards);
@@ -68,7 +72,7 @@ public class CountPoints {
 	}
 	
 	/**
-	 * Check if a game has ended
+	 * Check if a game has ended.
 	 * @return
 	 */
 	public boolean gameEnded() {
@@ -82,7 +86,7 @@ public class CountPoints {
 	}
 	
 	/**
-	 * Returns player/players with hegiest score
+	 * Returns player/players with hegiest score.
 	 * @return
 	 */
 	public ArrayList<Integer> getPlayerHigestPoints() {
@@ -90,8 +94,9 @@ public class CountPoints {
 	}
 	
 	/**
-	 * Check hegiest ints value in array
-	 * Also return a ArrayList with what index hegiest ints was at
+	 * Check hegiest ints value in array.
+	 * <br>
+	 * Also return a ArrayList with what index hegiest ints was at.
 	 * @param array
 	 * @return
 	 */
@@ -115,9 +120,11 @@ public class CountPoints {
 	}
 	
 	/**
-	 * Method used to add one point to the score for a player
-	 * Use case: "tabe", most spades & most cards
-	 * Returns true if game is over
+	 * Method used to add one point to the score for a player.
+	 * <br>
+	 * Use case: "tabe", most spades & most cards.
+	 * <br>
+	 * Returns true if game is over.
 	 * @param player
 	 * @return
 	 */
@@ -128,7 +135,7 @@ public class CountPoints {
 	}
 	
 	/**
-	 * A player send in hand to calculate all points from hand when round has ended
+	 * A player send in hand to calculate all points from hand when round has ended.
 	 * @param player
 	 * @param cards
 	 */
@@ -141,7 +148,7 @@ public class CountPoints {
 	}
 	
 	/**
-	 * Add points if card was a point card
+	 * Add points if card was a point card.
 	 * @param card
 	 * @return
 	 */
@@ -159,8 +166,9 @@ public class CountPoints {
 	}
 
 	/**
-	 * Checks if card is of type spades
-	 * Returns one if card is spade, else returns zero
+	 * Checks if card is of type spades.
+	 * <br>
+	 * Returns one if card is spade, else returns zero.
 	 * @param card
 	 * @return
 	 */

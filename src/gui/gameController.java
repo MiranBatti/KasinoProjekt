@@ -6,12 +6,19 @@ import java.util.ResourceBundle;
 import controller.Game;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.layout.VBoxBuilder;
 import javafx.scene.shape.Box;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import model.Card;
 import model.CardValue;
 import model.Suit;
@@ -157,6 +164,7 @@ public class gameController implements Initializable {
 	}
 	
 	public void gameEnded() {
+		ConfirmBox.display("Game ended", "Game is over!");
 		System.out.println("SLUT");
 	}
 	

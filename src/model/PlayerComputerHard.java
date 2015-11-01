@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class PlayerComputerHard extends Player implements CardOnTableComputer {
 	private Table table;

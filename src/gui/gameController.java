@@ -28,9 +28,21 @@ public class gameController implements Initializable {
 	@FXML
 	private ImageView computer1CardSlot4;
 	@FXML
-	private ImageView computer2Slot1, computer2Slot2, computer2Slot3, computer2Slot4;
+	private ImageView computer2CardSlot1;
 	@FXML
-	private ImageView computer3Slot1, computer3Slot2, computer3Slot3, computer3Slot4;
+	private ImageView computer2CardSlot2;
+	@FXML
+	private ImageView computer2CardSlot3;
+	@FXML
+	private ImageView computer2CardSlot4;
+	@FXML
+	private ImageView computer3CardSlot1;
+	@FXML
+	private ImageView computer3CardSlot2;
+	@FXML
+	private ImageView computer3CardSlot3;
+	@FXML
+	private ImageView computer3CardSlot4;
 	@FXML
 	private HBox hboxCenter;
 	@FXML
@@ -79,6 +91,18 @@ public class gameController implements Initializable {
 		computer1CardSlots.add(computer1CardSlot2);
 		computer1CardSlots.add(computer1CardSlot3);
 		computer1CardSlots.add(computer1CardSlot4);
+		
+		computer2CardSlots = new ArrayList<ImageView>();
+		computer2CardSlots.add(computer2CardSlot1);
+		computer2CardSlots.add(computer2CardSlot2);
+		computer2CardSlots.add(computer2CardSlot3);
+		computer2CardSlots.add(computer2CardSlot4);
+		
+		computer3CardSlots = new ArrayList<ImageView>();
+		computer3CardSlots.add(computer3CardSlot1);
+		computer3CardSlots.add(computer3CardSlot2);
+		computer3CardSlots.add(computer3CardSlot3);
+		computer3CardSlots.add(computer3CardSlot4);
 	}
 	
 	// Ha alla listerns här
@@ -128,7 +152,7 @@ public class gameController implements Initializable {
 		lblComputer1.setText("Score: " + game.getCountPoints().playerPoints(1));
 		if (players == 3)
 			lblComputer2.setText("Score: " + game.getCountPoints().playerPoints(2));
-		if (players == 4)
+		else if (players == 4)
 			lblComputer3.setText("Score: " + game.getCountPoints().playerPoints(3));
 	}
 	
@@ -185,6 +209,7 @@ public class gameController implements Initializable {
 			if (players == 3)
 				computer2CardSlots.get(i).setImage(new Image(gameController.class.getResourceAsStream("../resources/0.png")));
 			else if (players == 4)
+				computer2CardSlots.get(i).setImage(new Image(gameController.class.getResourceAsStream("../resources/0.png")));
 				computer3CardSlots.get(i).setImage(new Image(gameController.class.getResourceAsStream("../resources/0.png")));
 		}
 	}
@@ -196,6 +221,7 @@ public class gameController implements Initializable {
 			if (players == 3)
 				computer2CardSlots.get(i).setImage(new Image(gameController.class.getResourceAsStream("../resources/transparent.png")));
 			else if (players == 4)
+				computer2CardSlots.get(i).setImage(new Image(gameController.class.getResourceAsStream("../resources/transparent.png")));
 				computer3CardSlots.get(i).setImage(new Image(gameController.class.getResourceAsStream("../resources/transparent.png")));
 		}
 	}

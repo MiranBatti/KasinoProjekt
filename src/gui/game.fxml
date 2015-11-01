@@ -22,7 +22,7 @@
             </Label>
             <HBox prefHeight="154.0" prefWidth="204.0">
                <children>
-                  <ImageView fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="computer3CardSlot1" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/0.png" />
                      </image>
@@ -30,7 +30,7 @@
                         <Insets bottom="5.0" left="10.0" right="5.0" top="10.0" />
                      </HBox.margin>
                   </ImageView>
-                  <ImageView fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="computer3CardSlot2" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/0.png" />
                      </image>
@@ -42,7 +42,7 @@
             </HBox>
             <HBox prefHeight="132.0" prefWidth="204.0">
                <children>
-                  <ImageView fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="computer3CardSlot3" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/0.png" />
                      </image>
@@ -50,7 +50,7 @@
                         <Insets bottom="10.0" left="10.0" right="5.0" top="5.0" />
                      </HBox.margin>
                   </ImageView>
-                  <ImageView fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="computer3CardSlot4" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/0.png" />
                      </image>
@@ -183,7 +183,7 @@
             </Label>
             <HBox prefHeight="132.0" prefWidth="159.0">
                <children>
-                  <ImageView fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="computer2CardSlot1" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/0.png" />
                      </image>
@@ -191,7 +191,7 @@
                         <Insets bottom="5.0" left="10.0" right="5.0" top="10.0" />
                      </HBox.margin>
                   </ImageView>
-                  <ImageView fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="computer2CardSlot2" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/0.png" />
                      </image>
@@ -203,7 +203,7 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <ImageView fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="computer2CardSlot3" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/0.png" />
                      </image>
@@ -211,7 +211,7 @@
                         <Insets bottom="10.0" left="10.0" right="5.0" top="5.0" />
                      </HBox.margin>
                   </ImageView>
-                  <ImageView fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="computer2CardSlot4" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/0.png" />
                      </image>

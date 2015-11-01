@@ -23,6 +23,8 @@ import model.Suit;
 
 /**
  * Controller for game.fxml
+ * 
+ * @author miranbatti, jonasoster
  */
 public class gameController implements Initializable {
 	@FXML

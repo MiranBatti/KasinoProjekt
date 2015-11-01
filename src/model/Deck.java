@@ -5,6 +5,8 @@ import java.util.Collections;
 
 /**
  * Creates a deck with 52 cards.
+ * 
+ * @author miranbatti, jonasoster
  */
 public class Deck {
 	private ArrayList<Card> deck;

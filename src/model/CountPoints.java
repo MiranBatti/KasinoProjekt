@@ -5,6 +5,8 @@ import java.util.Arrays;
 
 /**
  * Class to count points in a casino game.
+ * 
+ * @author miranbatti, jonasoster
  */
 public class CountPoints {
 	private int[] playersScoreList;

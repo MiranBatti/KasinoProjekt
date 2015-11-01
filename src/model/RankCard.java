@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 /**
  * Rank a hand for a computer to make sure he takes the best cards.
- * <br>
+ *
+ * @author miranbatti, jonasoster
  */
 public class RankCard {
 	private int takeCardValue;

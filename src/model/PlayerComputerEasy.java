@@ -5,6 +5,8 @@ import java.util.Random;
 
 /**
  * Easy player to play against.
+ * 
+ * @author miranbatti, jonasoster
  */
 public class PlayerComputerEasy extends Player implements CardOnTableComputer {
 	private Table table;

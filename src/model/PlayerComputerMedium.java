@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 /**
  * Easy Medium to play against.
+ * 
+ * @author miranbatti, jonasoster
  */
 public class PlayerComputerMedium extends Player implements CardOnTableComputer {
 	private Table table;

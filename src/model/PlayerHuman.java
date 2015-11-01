@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 /**
  * Player for user.
+ * 
+ * @author miranbatti, jonasoster
  */
 public class PlayerHuman extends Player {
 	private Table table;

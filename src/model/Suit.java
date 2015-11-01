@@ -2,6 +2,8 @@ package model;
 
 /**
  * Enum with values a suit can have.
+ * 
+ * @author miranbatti, jonasoster
  */
 public enum Suit {
 	HEARTS(0),

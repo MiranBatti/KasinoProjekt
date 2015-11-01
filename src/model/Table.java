@@ -5,6 +5,8 @@ import java.util.HashSet;
 
 /**
  * Cards that players lay on table.
+ * 
+ * @author miranbatti, jonasoster
  */
 public class Table {
 	private ArrayList<Card> cards;

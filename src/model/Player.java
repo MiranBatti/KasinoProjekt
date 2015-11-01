@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 /**
  * Abstract class to make a blueprint of player to inherit.
+ * 
+ * @author miranbatti, jonasoster
  */
 public abstract class Player {
 	// only Access to sub-classes

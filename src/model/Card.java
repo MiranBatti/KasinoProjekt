@@ -2,6 +2,8 @@ package model;
 
 /**
  * Creates a card with CardValue and Suit.
+ * 
+ * @author miranbatti, jonasoster
  */
 public class Card {
 	private Suit suit;

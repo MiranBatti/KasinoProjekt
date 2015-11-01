@@ -15,6 +15,8 @@ import model.Table;
 
 /**
  * Creates Controller.
+ * 
+ * @author miranbatti, jonasoster
  */
 public class Game {
 	private PlayerHuman player;

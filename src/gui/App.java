@@ -7,7 +7,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 /**
- *  Start point for Application when using GUI.
+ * Start point for Application when using GUI.
+ * 
+ * @author miranbatti, jonasoster
  */
 public class App extends Application {
 	

@@ -17,6 +17,8 @@ import javafx.stage.Stage;
 
 /**
  * Controller for menu.fxml
+ * 
+ * @author miranbatti, jonasoster
  */
 public class menuController implements Initializable {
 	@FXML

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 /**
  * Hard player to play against.
+ * 
+ * @author miranbatti, jonasoster
  */
 public class PlayerComputerHard extends Player implements CardOnTableComputer {
 	private Table table;

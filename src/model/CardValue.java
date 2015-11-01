@@ -2,6 +2,8 @@ package model;
 
 /**
  * Enum with values a card can have.
+ * 
+ * @author miranbatti, jonasoster
  */
 public enum CardValue {
 	TWO(2),

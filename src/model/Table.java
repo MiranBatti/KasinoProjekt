@@ -131,10 +131,8 @@ public class Table {
 	 * @param index
 	 */
 	public void removeCardFromTable(int index) {
-		try {
+		if (cards.size() > 0) {
 			cards.remove(index);			
-		} catch (IndexOutOfBoundsException e) {
-			System.out.println("No more cards to remove");
 		}
 	}
 	

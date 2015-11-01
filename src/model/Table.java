@@ -104,8 +104,6 @@ public class Table {
 				c.setCardValueInt(14);
 			}
 		}
-		System.out.println(card);
-		System.out.println(returnCards);
 		
 		return returnCards;
 	}

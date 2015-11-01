@@ -284,31 +284,23 @@ public class gameController implements Initializable {
 		endStage.setWidth(200);
 		
 		Label lblMessage = new Label(winnerString);
-		Button close = new Button("Close");
-		close.getStyleClass().add("button-checkbox");
-		Button newGame = new Button("New Game");
+		Button closeGame = new Button("Close");
+		closeGame.getStyleClass().add("button-checkbox");
+		Button closeWindow = new Button("Ok");
 		
 		
-		close.setOnAction(e -> {
+		closeGame.setOnAction(e -> {
 			Platform.exit();
 			System.exit(0);
 		});
 		
-		/*newGame.setOnAction(e -> {
-			try {
-				Parent gameParent = FXMLLoader.load(getClass().getResource("menu.fxml"));
-				Scene gameScene = new Scene(gameParent, 400, 400);
-				Stage primaryStage = (Stage) ((Node)e.getSource()).getScene().getWindow();
-				primaryStage.hide();
-				primaryStage.setScene(gameScene);
-				primaryStage.show();
-			} catch (IOException event) {
-				event.printStackTrace();
-			}
-		});*/
+		closeWindow.setOnAction(e -> {
+			e.consume();
+			endStage.close();
+		});
 		
 		HBox layout = new HBox(10);
-		layout.getChildren().addAll(close, newGame);
+		layout.getChildren().addAll(closeGame, closeWindow);
 		layout.setAlignment(Pos.CENTER);
 		
 		VBox mainLayout = new VBox(10);

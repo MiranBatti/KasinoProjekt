@@ -28,18 +28,15 @@ public class Table {
 	 * @param partial
 	 */
 	private void addCardRecursive(ArrayList<Card> remaining, int target, ArrayList<Card> partial, boolean test) {
-		// Fixa om kort är Ess
-		// Gör ess till ett
-		// Retunera alla ess
 		int sum = 0;
 
 		for (Card c : partial) 
 			sum += c.getCardValueInt();
 		
-		/*for (Card c : remaining) {
+		for (Card c : remaining) {
 			if (c.getCardValue() == CardValue.ACE)
-				c.setCardValueInt(1);
-		}*/
+			c.setCardValueInt(1);
+		}
 
 
 		// Sets cards that match target or combo of it to returnCards
@@ -85,7 +82,6 @@ public class Table {
 	 * @return
 	 */
 	public ArrayList<Card> addCard(Card card, boolean test) {
-		System.out.println(card);
 		returnCards = new ArrayList<Card>();
 		hs = new HashSet<>();
 		int cardValue = card.getCardValueInt();
@@ -97,12 +93,18 @@ public class Table {
 		else
 			returnCards.add(card);
 		
-		/*for(Card c : returnCards) {
+		for(Card c : returnCards) {
 			if (c.getCardValue() == CardValue.ACE) {
 				c.setCardValueInt(14);
 			}
-		}*/
+		}
 		
+		for(Card c : cards) {
+			if (c.getCardValue() == CardValue.ACE) {
+				c.setCardValueInt(14);
+			}
+		}
+		System.out.println(card);
 		System.out.println(returnCards);
 		
 		return returnCards;

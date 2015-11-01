@@ -4,22 +4,23 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import model.Card;
 import model.Deck;
-import model.PlayerComputerMedium;
+import model.PlayerHuman;
 import model.Table;
+import model.Card;
 
-public class PlayerComputerMediumTest {
-	PlayerComputerMedium player;
+public class PlayerHumanTest {
+	PlayerHuman player;
 	Deck deck;
 	ArrayList<Card> hand;
 	ArrayList<Card> tableCards;
 	Table table;
 	int nbrOfCardsInHand;
-	
+
 	@Before
 	public void setUp() throws Exception {
 		deck = new Deck();
@@ -31,17 +32,21 @@ public class PlayerComputerMediumTest {
 			tableCards.add(deck.getCards().get(i+1));
 		}
 		table = new Table(tableCards);		
-		player = new PlayerComputerMedium(hand, table);	
+		player = new PlayerHuman(hand, table);		
+	}
+
+	@After
+	public void tearDown() throws Exception {
 	}
 
 	@Test
 	public void testNbrOfCards() {
 		assertEquals(nbrOfCardsInHand, player.showHand().size());
 	}
-
+	
 	@Test
-	public void putRandomCardOnTable() {
-		player.cardOnTable();
+	public void putCardOnTable() {
+		player.cardOnTable(hand.get(0));
 		assertEquals(3, player.showHand().size());
 	}
 

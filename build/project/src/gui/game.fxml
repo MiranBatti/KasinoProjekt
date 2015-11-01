@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.gameController">
+   <center>
+      <HBox fx:id="hboxCenter" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="147.0" prefWidth="668.0" BorderPane.alignment="CENTER" />
+   </center>
+   <left>
+      <VBox fx:id="vboxLeft" alignment="CENTER" prefHeight="570.0" prefWidth="196.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Player 4">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="154.0" prefWidth="204.0">
+               <children>
+                  <ImageView fx:id="computer3CardSlot1" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/0.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="5.0" top="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fx:id="computer3CardSlot2" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/0.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox prefHeight="132.0" prefWidth="204.0">
+               <children>
+                  <ImageView fx:id="computer3CardSlot3" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/0.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fx:id="computer3CardSlot4" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/0.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="5.0" right="10.0" top="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+            <Label fx:id="lblComputer3" text="Score: 0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children></VBox>
+   </left>
+   <top>
+      <HBox fx:id="hboxTop" alignment="CENTER" prefHeight="151.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" text="Player 2">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <ImageView fx:id="computer1CardSlot1" fitHeight="140.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+               <image>
+                  <Image url="@../resources/0.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="computer1CardSlot2" fitHeight="140.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/0.png" />
+               </image>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView fx:id="computer1CardSlot3" fitHeight="140.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/0.png" />
+               </image>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView fx:id="computer1CardSlot4" fitHeight="140.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/0.png" />
+               </image>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </ImageView>
+            <Label fx:id="lblComputer1" text="Score: 0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+         </children></HBox>
+   </top>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="160.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Your cards">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Label>
+            <ImageView fx:id="playerCardSlot1" fitHeight="140.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/0.png" />
+               </image>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView fx:id="playerCardSlot2" fitHeight="140.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/0.png" />
+               </image>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView fx:id="playerCardSlot3" fitHeight="140.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/0.png" />
+               </image>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView fx:id="playerCardSlot4" fitHeight="140.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/0.png" />
+               </image>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </ImageView>
+            <Label fx:id="lblPlayer" text="Score: 0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+         </children></HBox>
+   </bottom>
+   <right>
+      <VBox fx:id="vboxRight" alignment="CENTER" prefHeight="570.0" prefWidth="192.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Player 3">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="132.0" prefWidth="159.0">
+               <children>
+                  <ImageView fx:id="computer2CardSlot1" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/0.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="5.0" top="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fx:id="computer2CardSlot2" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/0.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <ImageView fx:id="computer2CardSlot3" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/0.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fx:id="computer2CardSlot4" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/0.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="5.0" right="10.0" top="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+            <Label fx:id="lblComputer2" text="Score: 0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children></VBox>
+   </right>
+</BorderPane>

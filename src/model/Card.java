@@ -64,6 +64,10 @@ public class Card {
 		return cardValue.getCardValue();
 	}
 	
+	/**
+	 * Set card value
+	 * @param cardValue
+	 */
 	public void setCardValue(CardValue cardValue) {
 		this.cardValue = cardValue;
 	}

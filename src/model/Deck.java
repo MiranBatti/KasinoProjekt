@@ -10,7 +10,9 @@ public class Deck {
 		this.deck = new ArrayList<Card>();
 		newRound();
 	}
-	
+	/**
+	 * Clear and shuffle the when beginning a new round
+	 */
 	public void newRound() {
 		deck.clear();
 		

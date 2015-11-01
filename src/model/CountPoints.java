@@ -24,7 +24,6 @@ public class CountPoints {
 		playersScoreList = new int[players];
 		amountOfCards = new int[players];
 		amountOfSpades = new int[players];
-		fillArrays();
 	}
 	
 	/**
@@ -37,15 +36,6 @@ public class CountPoints {
 		playersScoreList = new int[players];
 		amountOfCards = new int[players];
 		amountOfSpades = new int[players];
-		fillArrays();
-	}
-	
-	private void fillArrays() {
-		for (int i = 0; i < players; i++) {
-			playersScoreList[i] = 0;
-			amountOfCards[i] = 0;
-			amountOfSpades[i] = 0;
-		}
 	}
 	
 	/**
@@ -74,9 +64,9 @@ public class CountPoints {
 			if (mostSpades.contains(i))
 				addOnePoint(i);		
 
-		// New round 
-		amountOfCards = new int[players];
-		amountOfSpades = new int[players];
+		// New round
+		Arrays.fill(amountOfCards, 0);
+		Arrays.fill(amountOfSpades, 0);
 	}
 	
 	/**
@@ -97,7 +87,7 @@ public class CountPoints {
 	 * Returns player/players with hegiest score
 	 * @return
 	 */
-	public ArrayList<Integer> heigestPoints() {
+	public ArrayList<Integer> getPointList() {
 		return givePointToHighest(playersScoreList);
 	}
 	
@@ -108,14 +98,17 @@ public class CountPoints {
 	 * @return
 	 */
 	private ArrayList<Integer> givePointToHighest(int[] array) {
-		int[] cloneArray = array.clone();
-		Arrays.sort(cloneArray);
-		int mostCardsValue = cloneArray[players -1];
+		int mostCardsValue = 0;
 		
 		ArrayList<Integer> mostCards = new ArrayList<>();
-		
-		for (int i = 0; i < cloneArray.length; i++) {
-			if (cloneArray[i] == mostCardsValue) {
+				
+		for (int i = 0; i < array.length; i++) {
+			if (mostCardsValue < array[i]) {
+				mostCardsValue = array[i];
+			}
+		}
+		for (int i = 0; i < array.length; i++) {
+			if (array[i] == mostCardsValue) {
 				addOnePoint(i);
 				mostCards.add(i);
 			}

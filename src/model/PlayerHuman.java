@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
+
 public class PlayerHuman extends Player {
 	private Table table;
 
@@ -18,5 +19,4 @@ public class PlayerHuman extends Player {
 			}
 		}
 	}
-
 }

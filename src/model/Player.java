@@ -18,6 +18,7 @@ public abstract class Player {
 		this.cards = cards;
 		pointsCards = new ArrayList<Card>();
 	}
+	
 	/**
 	 * Deal new cards to player
 	 * @param cards
@@ -25,6 +26,7 @@ public abstract class Player {
 	public void newCards(ArrayList<Card> cards) {
 		this.cards = cards;
 	}
+	
 	/**
 	 * 
 	 * @param card
@@ -32,6 +34,7 @@ public abstract class Player {
 	public void addCard(Card card) {
 		cards.add(card);
 	}
+	
 	/**
 	 * Show player cards
 	 * @return
@@ -39,6 +42,7 @@ public abstract class Player {
 	public ArrayList<Card> showHand() {
 		return cards;
 	}
+	
 	/**
 	 * Give points to player
 	 * @param pointsCard
@@ -46,6 +50,7 @@ public abstract class Player {
 	public void addPointsCard(ArrayList<Card> pointsCard) {
 		this.pointsCards = pointsCard;
 	}
+	
 	/**
 	 * Return points the card is worth
 	 * @return

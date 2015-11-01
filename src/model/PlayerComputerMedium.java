@@ -2,16 +2,27 @@ package model;
 
 import java.util.ArrayList;
 
+/**
+ * Easy Medium to play against.
+ */
 public class PlayerComputerMedium extends Player implements CardOnTableComputer {
 	private Table table;
 	private RankCard rankCard;
 
+	/**
+	 * Give a list with cards and the table the game uses.
+	 * @param cards
+	 * @param table
+	 */
 	public PlayerComputerMedium(ArrayList<Card> cards, Table table) {
 		super(cards);
 		this.table = table;
 		rankCard = new RankCard();
 	}
 	
+	/**
+	 * Lay the card that gives cards back if possble to computers point cards.
+	 */
 	public void cardOnTable() {
 		int index = 0;
 
@@ -20,8 +31,7 @@ public class PlayerComputerMedium extends Player implements CardOnTableComputer 
 			ArrayList<Card> cardsReturned = table.addCard(card, true);
 			int rankAllCards = rankCard.rankAll(cardsReturned);
 			
-			// Takes cards if hand values over 5
-			if (rankCard.takeCards(rankAllCards)) {
+			if (rankAllCards > 0) {
 				index = i;
 				break;
 			}
@@ -29,5 +39,4 @@ public class PlayerComputerMedium extends Player implements CardOnTableComputer 
 		pointsCards = table.addCard(cards.get(index), false);
 		cards.remove(index);
 	}
-
 }

@@ -3,9 +3,15 @@ package model;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * Creates a deck with 52 cards.
+ */
 public class Deck {
 	private ArrayList<Card> deck;
 
+	/**
+	 * Creates a shuffled deck.
+	 */
 	public Deck () {
 		this.deck = new ArrayList<Card>();
 		newRound();
@@ -61,5 +67,4 @@ public class Deck {
 	public int amountOfCards() {
 		return deck.size();
 	}
-	
 }

@@ -2,12 +2,18 @@ package model;
 
 import java.util.ArrayList;
 
+/**
+ * Abstract class to make a blueprint of player to inherit.
+ */
 public abstract class Player {
-	
 	// only Access to sub-classes
 	ArrayList<Card> cards;
 	ArrayList<Card> pointsCards;
 	
+	/**
+	 * Send in players cards.
+	 * @param cards
+	 */
 	public Player(ArrayList<Card> cards) {
 		this.cards = cards;
 		pointsCards = new ArrayList<Card>();

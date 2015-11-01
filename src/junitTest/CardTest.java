@@ -15,7 +15,7 @@ public class CardTest {
 
 	@Before
 	public void setUp() throws Exception {
-		card = new Card(CardValue.EIGHT, Suit.DIAMONDS); // ruter åtta
+		card = new Card(CardValue.EIGHT, Suit.DIAMONDS);
 	}
 
 	@After

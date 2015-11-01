@@ -33,7 +33,6 @@ public class PlayerHumanTest {
 		}
 		table = new Table(tableCards);		
 		player = new PlayerHuman(hand, table);		
-		//player = new PlayerHuman(hand, table); gjort om
 	}
 
 	@After
@@ -48,7 +47,7 @@ public class PlayerHumanTest {
 	@Test
 	public void putCardOnTable() {
 		player.cardOnTable(hand.get(0));
-		assertEquals(3, player.showHand().size()); // spelaren får 1 kort mindre efter den spelas ut
+		assertEquals(3, player.showHand().size());
 	}
 
 }

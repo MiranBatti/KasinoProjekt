@@ -23,7 +23,7 @@ public class DeckTest {
 
 	@Test
 	public void testDeckSize() {
-		assertEquals(52, deck.getCards().size()); //kontrollera att vi får 52 kort i kortleken
+		assertEquals(52, deck.getCards().size());
 	}
 	
 	@Test

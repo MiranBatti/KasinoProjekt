@@ -14,7 +14,6 @@ public class CountPoints {
 	private int gameEnd;
 
 	/**
-	 * Construktor
 	 * @param players
 	 * @param gameEnd
 	 */
@@ -27,7 +26,6 @@ public class CountPoints {
 	}
 	
 	/**
-	 * Construktor
 	 * @param players
 	 */
 	public CountPoints(int players) {
@@ -175,8 +173,12 @@ public class CountPoints {
 		return value;
 	}
 	
+	/**
+	 * Returns a specific players points.
+	 * @param player
+	 * @return
+	 */
 	public int playerPoints(int player) {
 		return playersScoreList[player];
-	}
-	
+	}	
 }
